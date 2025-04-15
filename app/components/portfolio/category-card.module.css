@@ -1,0 +1,78 @@
+/* styles/PortfolioCategory.module.css */
+.category {
+  display: inline-flex;
+  flex-direction: column;  /* Align image and details vertically */
+  overflow: hidden;
+  margin-bottom: 3rem;
+  width: 100%;
+}
+
+.category:hover {
+  transform: translateY(-10px);
+}
+
+.imageContainer {
+  width: 100%;
+  height: 400px;  /* Adjust height based on image aspect ratio */
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.image {
+  /* border-radius: 8px; */
+  width: 100%;
+  height: 100%;  /* Adjust height based on image aspect ratio */
+  object-fit: cover;   /* Ensures the image covers the container fully */
+}
+
+.details {
+  padding: 20px;
+  text-align: center;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.learnMore {
+  /* color: var(--soft-peach); */
+  text-decoration: none;
+  /* font-weight: bold; */
+}
+
+.learnMore:hover {
+  text-decoration: underline;
+}
+
+
+
+@media (min-width: 768px) {
+  .category {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+
+  /* Override image heights for specific categories */
+.category:nth-child(1) .imageContainer {
+  height: 500px; /* Residential - taller image */
+  width: 100%;
+}
+
+.category:nth-child(2) .imageContainer {
+  height: 750px; /* Retail - smaller image */
+}
+
+.category:nth-child(3) .imageContainer {
+  height: 780px; /* Hospitality - taller image */
+}
+
+.category:nth-child(4) .imageContainer {
+  height: 650px; /* Cultural - default size */
+}
+}

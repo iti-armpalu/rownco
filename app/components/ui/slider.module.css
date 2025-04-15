@@ -1,0 +1,60 @@
+.slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.controls {
+  position: absolute;
+  bottom: -50px;
+  left: 50%; /* 👈 Start centered on mobile */
+  transform: translateX(-50%); /* 👈 Perfect centering */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center text and buttons inside */
+  width: 90%; /* or set a fixed width like 300px */
+  max-width: 400px; /* optional max */
+  padding: 0.5rem 1rem; /* optional for breathing room */
+}
+
+.prevButton,
+.nextButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0 1rem;
+}
+
+.prevButton svg,
+.nextButton svg {
+  width: 60px;
+  height: 24px;
+}
+
+.slideIndicator {
+  margin: 0 10px;
+  font-size: 1rem;
+}
+
+/* Tablet/Desktop */
+@media (min-width: 768px) {
+  .controls {
+    left: auto;
+    right: 40px;
+    transform: none; /* Remove centering shift */
+  }
+
+  .prevButton svg,
+  .nextButton svg {
+    width: 100px;
+    height: 24px;
+  }
+}

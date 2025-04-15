@@ -1,0 +1,17 @@
+/* styles/MoodImage.module.css */
+.moodImage {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  background-size: cover;
+  background-position: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--rich-purple);
+}

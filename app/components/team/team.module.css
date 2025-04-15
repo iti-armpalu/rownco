@@ -1,0 +1,128 @@
+.section {
+  padding: 6rem 2rem;
+  overflow: hidden;
+}
+
+.header{
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  width: 100%;
+  margin: 0 auto; /* Center the element */
+  text-align: start;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.header h2 {
+  flex: 1; /* 1/3 of the space */
+  font-size: 3.5rem;
+  line-height: 3rem;
+}
+
+.header p {
+  flex: 2; /* 2/3 of the space */
+  font-size: 1rem;
+  color: #666;
+}
+
+.teamMember {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  width: 100%;
+  text-align: left;
+  margin-top: 1rem;
+}
+
+.teamMemberImage {
+  order: 2;
+  flex: 0 0 auto;
+}
+
+.teamMemberInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.teamImage {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.memberName {
+  font-size: 2rem;
+}
+
+.memberPosition {
+  font-size: 1rem;
+  color: #666;
+}
+
+.cvButton {
+  display: inline-block;
+  margin: 1rem 0; /* Add space around the button */
+  width: max-content;
+  background-color: none;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.memberDescription {
+  margin-top: 1rem;
+  color: #666;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 576px) {
+  .header {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 768px) {
+  .header {
+    width: calc(100% - 10rem); /* Adjust width based on desired padding */
+  }
+
+  .teamMember {
+
+    flex-direction: row;
+    max-width: 900px;
+
+  }
+
+  .teamMemberImage {
+    order: 1;
+  }
+
+  .teamMemberInfo {
+    order: 2;
+    margin: 0;
+  }
+
+
+}
+
+@media (min-width: 992px) {
+
+}
+
+@media (min-width: 1200px) {}
+
+@media (min-width: 1400px) {}

@@ -1,0 +1,22 @@
+.client {
+  padding: 5rem 0;
+}
+
+.client h2 {
+  font-size: 3.5rem;
+  text-align: left;
+  margin-bottom: 5rem;
+}
+
+.clientLogos {
+  display: inline-flex;
+}
+
+.clientLogo {
+  width: auto;
+  height: 100px;
+  padding: 2rem;
+  border: 1px solid var(--soft-peach);
+  opacity: 0.2;
+  fill: var(--soft-peach); /* This will change the fill color of the SVG */
+}
