@@ -1,11 +1,13 @@
 "use client";
 
-import { motion } from "framer-motion";
-import ContactForm from "../ui/contact-form";
 import styles from "./contact.module.css";
+import ContactForm from "../ui/contact-form";
+import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
+import { submitForm } from "@/actions";
 
 export default function Contact() {
+
   return (
     <section id="contact" className={styles.contact}>
       <motion.h3 {...fadeInViewProps}>
@@ -23,7 +25,7 @@ export default function Contact() {
         {...fadeInViewProps}
         transition={{ ...fadeInViewProps.transition, delay: 0.6 }}
       >
-        <ContactForm />
+        <ContactForm onSubmit={submitForm} />
       </motion.div>
     </section>
   );

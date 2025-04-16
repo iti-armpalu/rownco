@@ -1,92 +1,61 @@
-'use client'
+"use client";
 
-import { useState } from 'react';
+import { useActionState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./contact-form.module.css";
-import { MotionConfig } from 'framer-motion';
+import { MotionConfig } from "framer-motion";
 
-const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
+export default function ContactForm({ onSubmit }) {
+  const [formState, formAction] = useActionState(onSubmit, "");
+  const formRef = useRef(null);
+  const [submitMessage, setSubmitMessage] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
+  useEffect(() => {
+    if (formState?.success) {
+      // Clear form fields
+      if (formRef.current) {
+        formRef.current.reset();
+      }
+      // Display success message
+      setSubmitMessage(formState.message);
+      // Clear message after 5 seconds
+      const timer = setTimeout(() => {
+        setSubmitMessage("");
+      }, 5000);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    // const res = await fetch('/api/contact', {
-    //   method: 'POST',
-    //   headers: {
-    //   'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify({
-    //   nameEmail: `${formData.name} - ${formData.email}`,
-    //   message: formData.message
-    //   })
-    // });
-
-    // if (res.ok) {
-    //   alert('Message sent successfully!');
-    //   setFormData({ name: '', email: '', message: '' });
-    // } else {
-    //   alert('Failed to send message.');
-    // }
-    console.log('📬 Dummy form submission:', {
-      nameEmail: `${formData.name} - ${formData.email}`,
-      message: formData.message
-    });
-  
-    alert('Message "sent" successfully (dummy)!');
-  
-    setFormData({ name: '', email: '', message: '' });
-  };
+      return () => clearTimeout(timer);
+    }
+  }, [formState]);
 
   return (
-    <form onSubmit={handleSubmit} className={styles.contactForm}>
-    <div className={styles.flexContainer}>
-      <div className={styles.inputGroup}>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          placeholder="Full name"
-          required
-        />
+    <form ref={formRef} action={formAction} className={styles.contactForm}>
+      <div className={styles.flexContainer}>
+        <div className={styles.inputGroup}>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Name"
+            required
+          />
+        </div>
+        <div className={styles.inputGroup}>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            required
+          />
+        </div>
       </div>
       <div className={styles.inputGroup}>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          placeholder="Email"
-          required
-        />
+        <textarea id="message" name="message" placeholder="Message" required />
       </div>
-    </div>
-    <div className={styles.inputGroup}>
-      <textarea
-        id="message"
-        name="message"
-        value={formData.message}
-        onChange={handleChange}
-        placeholder="Message"
-        required
-      />
-    </div>
-    <button type="submit">Submit</button>
-  </form>
+      <div>
+        {!submitMessage && <button type="submit">Submit</button>}
+        {submitMessage && <p>{submitMessage}</p>}
+      </div>
+    </form>
   );
 };
-
-export default ContactForm;

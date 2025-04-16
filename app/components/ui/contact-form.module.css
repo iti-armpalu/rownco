@@ -23,17 +23,22 @@
   width: 100%;
   padding: 0.75rem 0;
   border: none;
+  outline: none;
   background-color: transparent;
   border-bottom: 1px solid var(--soft-peach);
   color: var(--soft-peach);
   font-family: 'Rubik', sans-serif;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+  -webkit-border-radius: 0;
 }
 
 .contactForm input::placeholder,
 .contactForm textarea::placeholder {
   color: var(--soft-peach);
   opacity: 0.7;
-  text-transform: uppercase;
 }
 
 .contactForm input:focus,
@@ -51,6 +56,26 @@
   width: fit-content;
   margin-top: 2rem;
   font-size: 1rem;
+  animation: animateIn 0.6s ease-out;
+}
+
+.contactForm p {
+  animation: animateIn 0.6s ease-out;
+  color: var(--soft-peach);
+  margin-top: 2rem;
+}
+
+@keyframes animateIn {
+  from {
+    opacity: 0;
+    transform: translateY(30%);
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+    visibility: visible;
+  }
 }
 
 @media (min-width: 768px) {

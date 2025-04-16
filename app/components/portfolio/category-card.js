@@ -20,13 +20,13 @@ export default function CategoryCard({ type, imageUrl, title, description }) {
       <div className={styles.details}>
         <h3 className={styles.title}>{title}</h3>
         {/* <p className={styles.description}>{description}</p> */}
-        <Link
-          // href={`/portfolio/${type}`}
+        {/* <Link
+          href={`/portfolio/${type}`}
           href={`/`}
           className={styles.learnMore}
         >
           Learn More
-        </Link>
+        </Link> */}
       </div>
     </motion.div>
   );

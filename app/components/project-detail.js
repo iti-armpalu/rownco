@@ -4,38 +4,39 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./project-detail.module.css";
 import { getProjectData } from "@/lib/projects";
+import { urlFor } from "@/sanity/sanityImage";
 
-export default function ProjectDetail({ slug }) {
-  const [project, setProject] = useState(null);
-  const [error, setError] = useState(null);
+export default function ProjectDetail({ project }) {
+  // const [project, setProject] = useState(null);
+  // const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchProjectData = async () => {
-      try {
-        const data = await getProjectData(slug);
+  // useEffect(() => {
+  //   const fetchProjectData = async () => {
+  //     try {
+  //       const data = await getProjectData(slug);
 
-        if (!data) {
-          setError("Project not found");
-        } else {
-          setProject(data);
-        }
-      } catch (error) {
-        console.error("Error fetching project details:", error);
-        setError("Error fetching project details");
-      }
-    };
+  //       if (!data) {
+  //         setError("Project not found");
+  //       } else {
+  //         setProject(data);
+  //       }
+  //     } catch (error) {
+  //       console.error("Error fetching project details:", error);
+  //       setError("Error fetching project details");
+  //     }
+  //   };
 
-    fetchProjectData();
-  }, [slug]);
+  //   fetchProjectData();
+  // }, [slug]);
 
-  if (error) {
-    return (
-      <div className={styles.container}>
-        <p>{error}</p>
-      </div>
-    );
-  }
-  if (!project) return <div>Loading...</div>;
+  // if (error) {
+  //   return (
+  //     <div className={styles.container}>
+  //       <p>{error}</p>
+  //     </div>
+  //   );
+  // }
+  // if (!project) return <div>Loading...</div>;
 
   return (
     <div className={styles.container}>
@@ -57,13 +58,25 @@ export default function ProjectDetail({ slug }) {
       </div>
 
       <div className={styles.imageWrapper}>
-        <Image
+        {/* <Image
           src={project.image}
           alt={project.title}
           width={800}
           height={500}
           className={styles.image}
-        />
+        /> */}
+
+        {project.images?.map((img, i) => (
+          <div key={i}>
+            <Image
+              src={urlFor(img.asset).url()}
+              alt={project.title}
+              width={800}
+              height={500}
+              className={styles.image}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );
