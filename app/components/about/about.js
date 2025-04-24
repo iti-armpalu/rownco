@@ -1,7 +1,7 @@
 import MoodImageOverlay from "../ui/mood-image";
 import styles from "./about.module.css";
-import { motion } from "framer-motion";
 import about from "@/lib/about";
+import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
 
 export default function About() {

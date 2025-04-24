@@ -1,9 +1,11 @@
 "use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./header.module.css";
+import { motion } from "framer-motion";
+import { fadeInViewProps } from "@/lib/animations";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -18,19 +20,19 @@ export default function Header() {
   // Prevent background scroll when menu is open
   useEffect(() => {
     if (menuOpen) {
-      document.body.classList.add('no-scroll');
+      document.body.classList.add("no-scroll");
     } else {
-      document.body.classList.remove('no-scroll');
+      document.body.classList.remove("no-scroll");
     }
 
     return () => {
-      document.body.classList.remove('no-scroll');
+      document.body.classList.remove("no-scroll");
     };
   }, [menuOpen]);
 
   return (
     <div className={styles.container}>
-      <header className={styles.header}>
+      <motion.header className={styles.header} {...fadeInViewProps}>
         <div className={styles.logo}>
           <Link href="/">
             <Image
@@ -58,10 +60,10 @@ export default function Header() {
         >
           ☰
         </button>
-      </header>
+      </motion.header>
 
       {/* Slide-in mobile menu */}
-      <div className={`${styles.mobileMenu} ${menuOpen ? styles.open : ''}`}>
+      <div className={`${styles.mobileMenu} ${menuOpen ? styles.open : ""}`}>
         <button
           className={styles.closeButton}
           onClick={() => setMenuOpen(false)}
@@ -82,7 +84,9 @@ export default function Header() {
       </div>
 
       {/* Optional overlay */}
-      {menuOpen && <div className={styles.overlay} onClick={() => setMenuOpen(false)} />}
+      {menuOpen && (
+        <div className={styles.overlay} onClick={() => setMenuOpen(false)} />
+      )}
     </div>
   );
 }

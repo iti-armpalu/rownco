@@ -19,7 +19,7 @@ const rubik = Rubik({
 export const metadata = {
   title: "Row & Co",
   description:
-    "Row & Co is a design and development agency based in Dubai, UAE.",
+    "Row & Co is an architecture and real estate development studio based in Dubai, UAE.",
   icons: {
     icon: "/favicon.png",
   },
@@ -29,7 +29,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${literata.variable} ${rubik.variable}`}>
-        <Header />
         {children}
         <FooterContainer />
       </body>

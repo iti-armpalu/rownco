@@ -1,0 +1,163 @@
+.container {
+  padding: 6rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 600;
+
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.featureTags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  gap: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 6rem;
+}
+
+.featureTag {
+  padding: 0.2rem 0.8rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  /* text-transform: uppercase; */
+  letter-spacing: 0.04em;
+}
+
+.metaGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.metaItem {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.label {
+  min-width: 100px;
+}
+
+.value {
+  color: #222;
+}
+
+.imageWrapper {
+  /* margin-top: 2rem;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08); */
+  width: 100vw; /* makes the element as wide as the whole screen */
+  margin-left: calc(
+    -50vw + 50%
+  ); /* pulls the element left by exactly the amount it needs to start from the left edge of the screen, not from the container center */
+  overflow-x: auto;
+  display: flex;
+
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  scroll-snap-type: x mandatory; /* Optional: snap scroll */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  margin-top: 6rem;
+}
+
+.image {
+  flex: 0 0 auto;
+  height: 100%;
+  max-height: 300px;
+  width: 100%;
+  object-fit: cover;
+  scroll-snap-align: start; /* Aligns nicely when scrolling */
+  transition: transform 0.4s ease;
+  cursor: pointer;
+}
+
+.image:hover {
+  transform: translateY(-6px);
+}
+
+.lightboxOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.lightboxImage {
+  max-width: auto;
+  max-height: auto;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: white;
+  font-size: 3rem;
+  cursor: pointer;
+  z-index: 10001;
+  padding: 1rem;
+}
+
+.prevButton {
+  left: 2rem;
+}
+
+.nextButton {
+  right: 2rem;
+}
+
+.closeButton {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.lightboxCaption {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 1rem;
+  z-index: 10001;
+  text-align: center;
+}
+
+.lightboxCaption p {
+  color: white;
+}
+
+.captionText {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}

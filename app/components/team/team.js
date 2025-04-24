@@ -3,44 +3,20 @@ import styles from "./team.module.css";
 import Image from "next/image";
 import team from "@/lib/team";
 import { motion } from "framer-motion";
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0 },
-};
+import { fadeInViewProps } from "@/lib/animations";
 
 export default function Team() {
   return (
     <section id="team" className={styles.section}>
       <div className={styles.header}>
-        <motion.h2
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-          variants={fadeInUp}
-          transition={{ duration: 0.8 }}
-        >
-          Meet our Team
-        </motion.h2>
-        <motion.p
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-          variants={fadeInUp}
-          transition={{ duration: 0.8 }}
-        >
+        <motion.h2 {...fadeInViewProps}>Meet our Team</motion.h2>
+        <motion.p {...fadeInViewProps}>
           Discover the driving force behind our creativity – a diverse team of
           passionate architects, each contributing a unique perspective to shape
           the future of design.
         </motion.p>
       </div>
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.5 }}
-        variants={fadeInUp}
-        transition={{ duration: 0.8 }}
-      >
+      <motion.div {...fadeInViewProps}>
         <Slider>
           {team.map((member) => (
             <div key={member.name} className={styles.teamMember}>

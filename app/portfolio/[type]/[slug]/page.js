@@ -1,4 +1,5 @@
-import ProjectDetail from "@/app/components/project-detail";
+
+import ProjectDetail from "@/app/components/portfolio/project-detail";
 import { client } from "@/sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 import { PortableText } from "next-sanity"; // optional if you use rich text
