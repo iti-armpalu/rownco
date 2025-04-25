@@ -1,0 +1,113 @@
+/* components/services/services-section.module.css */
+
+.servicesSection {
+  padding: 4rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.heading {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.item {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1rem;
+}
+
+.toggleBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+
+}
+
+.header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.toggle {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1;
+  user-select: none;
+}
+
+.content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
+  opacity: 0;
+  padding-top: 0;
+}
+
+.open {
+  max-height: 200px; /* or set to something bigger to allow for longer text */
+  opacity: 1;
+  padding-top: 0.75rem;
+}
+
+.closed {
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+}
+
+
+/* ---------------------------------------
+  Expand Icon Animation
+---------------------------------------- */
+.iconSurvey.active {
+  background: transparent;
+}
+.iconSurvey:hover {
+  cursor: pointer;
+}
+.iconShape {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+.iconSurvey .iconShape::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 2px;
+  background: var(--rich-black);
+  border-radius: 3px;
+  transition: all 0.5s ease;
+}
+.iconSurvey .iconShape::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 20px;
+  background: var(--rich-black);
+  border-radius: 3px;
+  transition: all 0.5s ease;
+}
+.iconSurvey .iconShape.active::before {
+  transform: translate(-50%, -50%) rotate(180deg);
+  transition: all 0.5s ease;
+}
+.iconSurvey .iconShape.active::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+  transition: all 0.5s ease;
+}

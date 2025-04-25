@@ -1,10 +1,9 @@
-
 .grid {
-  column-count: 1;
-  /* grid-template-columns: repeat(2, 1fr); */
+  display: grid;
+  /* column-count: 1; */
+  grid-template-columns: repeat(1, 1fr);
   gap: 2rem;
   padding: 2rem 0;
-
 }
 
 .card {
@@ -12,24 +11,21 @@
   flex-direction: column;
   gap: 2rem;
   margin-bottom: 2rem;
-
 }
 
 .card > :not(:last-child) {
   margin: 0 2rem;
-
 }
 
 .card h2 {
   font-size: 1.8rem;
   line-height: 1.6rem;
-  text-transform: initial ;
+  text-transform: initial;
 }
-
 
 .image {
   width: 100%;
-  height: auto; /* allows natural height */
+  height: 100%; /* allows natural height */
   object-fit: cover;
   margin-top: 1rem;
 }
@@ -38,5 +34,7 @@
 @media (min-width: 768px) {
   .grid {
     column-count: 2;
+    grid-template-columns: repeat(2, 1fr);
+
   }
 }

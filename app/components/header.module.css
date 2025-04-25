@@ -43,6 +43,7 @@
   margin-left: 2rem;
   text-decoration: none;
   color: #333;
+  background-color: transparent;
   font-weight: 500;
 }
 
@@ -120,7 +121,7 @@
     padding: 1.5rem 2rem;
     border: 1px solid var(--rich-black);
     margin-left: -1px; /* Prevent double border between links */
-    margin-top: -1px; /* Prevent double border between top border */
+    margin-top: 0; /* Prevent double border between top border */
     transition: color 0.3s ease, background-color 0.3s ease; /* Add transition */
   }
   

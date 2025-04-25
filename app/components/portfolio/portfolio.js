@@ -3,11 +3,12 @@ import categories from "@/lib/categories";
 import CategoryCard from "./category-card";
 import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
+import { forwardRef } from "react";
 
-export default function Portfolio() {
+const Portfolio = forwardRef(function Portfolio(_, ref) {
   return (
     <div className="container">
-      <section id="portfolio" className={styles.portfolio}>
+      <section ref={ref} className={styles.portfolio}>
         <motion.h2 {...fadeInViewProps} className={styles.heading}>
           Portfolio
         </motion.h2>
@@ -19,4 +20,6 @@ export default function Portfolio() {
       </section>
     </div>
   );
-};
+});
+
+export default Portfolio;

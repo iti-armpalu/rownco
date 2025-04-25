@@ -12,15 +12,16 @@ export default function ProjectDetail({ project }) {
 
   const openLightbox = (index) => setSelectedIndex(index);
   const closeLightbox = () => setSelectedIndex(null);
-  const goNext = useCallback(() => {
-    setSelectedIndex((i) => (i + 1) % project.images.length);
-  }, [project.images.length]);
 
-  const goPrev = useCallback(() => {
-    setSelectedIndex(
-      (i) => (i - 1 + project.images.length) % project.images.length
-    );
-  }, [project.images.length]);
+const goNext = useCallback(() => {
+  if (!project.images?.length) return;
+  setSelectedIndex((i) => (i + 1) % project.images.length);
+}, [project.images]);
+
+const goPrev = useCallback(() => {
+  if (!project.images?.length) return;
+  setSelectedIndex((i) => (i - 1 + project.images.length) % project.images.length);
+}, [project.images]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -114,16 +115,18 @@ export default function ProjectDetail({ project }) {
             className={styles.lightboxImage}
             onClick={(e) => e.stopPropagation()}
           />
-          <div className={styles.lightboxCaption}>
-            <p>
-              {selectedIndex + 1} / {project.images.length}
-            </p>
-            {project.images[selectedIndex].caption && (
-              <p className={styles.captionText}>
-                {project.images[selectedIndex].caption}
+          {selectedIndex !== null && project.images?.length > 0 && (
+            <div className={styles.lightboxCaption}>
+              <p>
+                {selectedIndex + 1} / {project.images.length}
               </p>
-            )}
-          </div>
+              {project.images[selectedIndex].caption && (
+                <p className={styles.captionText}>
+                  {project.images[selectedIndex].caption}
+                </p>
+              )}
+            </div>
+          )}
 
           <button
             onClick={(e) => {

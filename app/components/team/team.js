@@ -4,10 +4,11 @@ import Image from "next/image";
 import team from "@/lib/team";
 import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
+import { forwardRef } from "react";
 
-export default function Team() {
+const Team = forwardRef(function Team(_, ref) {
   return (
-    <section id="team" className={styles.section}>
+    <section ref={ref} className={styles.section}>
       <div className={styles.header}>
         <motion.h2 {...fadeInViewProps}>Meet our Team</motion.h2>
         <motion.p {...fadeInViewProps}>
@@ -48,4 +49,6 @@ export default function Team() {
       </motion.div>
     </section>
   );
-}
+});
+
+export default Team;

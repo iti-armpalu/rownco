@@ -8,13 +8,14 @@ import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
 
 const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#portfolio", label: "Portfolio" },
-  { href: "#team", label: "Team" },
-  { href: "#contact", label: "Contact" },
+  { label: "About", section: "about" },
+  { label: "Services", section: "services" },
+  { label: "Portfolio", section: "portfolio" },
+  { label: "Team", section: "team" },
+  { label: "Contact", section: "contact" },
 ];
 
-export default function Header() {
+export default function Header({ onScrollTo }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   // Prevent background scroll when menu is open
@@ -47,9 +48,13 @@ export default function Header() {
 
         <nav className={styles.navLinks}>
           {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className={styles.navLink}>
+            <button
+              key={link.section}
+              className={styles.navLink}
+              onClick={() => onScrollTo(link.section)}
+            >
               {link.label}
-            </Link>
+            </button>
           ))}
         </nav>
 
@@ -72,14 +77,16 @@ export default function Header() {
           ×
         </button>
         {navLinks.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
+          <button
+            key={link.section}
             className={styles.mobileNavLink}
-            onClick={() => setMenuOpen(false)}
+            onClick={() => {
+              onScrollTo(link.section);
+              setMenuOpen(false);
+            }}
           >
             {link.label}
-          </Link>
+          </button>
         ))}
       </div>
 

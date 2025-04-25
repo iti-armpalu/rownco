@@ -3,10 +3,11 @@ import styles from "./about.module.css";
 import about from "@/lib/about";
 import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
+import { forwardRef } from "react";
 
-export default function About() {
+const About = forwardRef(function About(_, ref) {
   return (
-    <section id="about" className={styles.aboutSection}>
+    <section ref={ref} className={styles.aboutSection}>
       {about.map((section, index) => (
         <motion.div key={index} className={styles.aboutElement}>
           <div
@@ -54,4 +55,6 @@ export default function About() {
       ))}
     </section>
   );
-}
+});
+
+export default About;
