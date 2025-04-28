@@ -1,13 +1,18 @@
+'use client';
+
+import { useRef } from "react";
 import MoodImageOverlay from "../ui/mood-image";
 import styles from "./about.module.css";
 import about from "@/lib/about";
 import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
-import { forwardRef } from "react";
 
-const About = forwardRef(function About(_, ref) {
+
+const About = () => {
+  const aboutRef = useRef()
+
   return (
-    <section ref={ref} className={styles.aboutSection}>
+    <section ref={aboutRef} id="about" className={styles.aboutSection}>
       {about.map((section, index) => (
         <motion.div key={index} className={styles.aboutElement}>
           <div
@@ -55,6 +60,6 @@ const About = forwardRef(function About(_, ref) {
       ))}
     </section>
   );
-});
+};
 
 export default About;

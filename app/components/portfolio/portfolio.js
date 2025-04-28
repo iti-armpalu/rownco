@@ -1,14 +1,19 @@
+'use client';
+
 import styles from "./portfolio.module.css";
 import categories from "@/lib/categories";
 import CategoryCard from "./category-card";
 import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
-import { forwardRef } from "react";
+import { useRef } from "react";
 
-const Portfolio = forwardRef(function Portfolio(_, ref) {
+
+const Portfolio = () => {
+  const portfolioRef = useRef()
+
   return (
     <div className="container">
-      <section ref={ref} className={styles.portfolio}>
+      <section ref={portfolioRef} id="portfolio" className={styles.portfolio}>
         <motion.h2 {...fadeInViewProps} className={styles.heading}>
           Portfolio
         </motion.h2>
@@ -20,6 +25,6 @@ const Portfolio = forwardRef(function Portfolio(_, ref) {
       </section>
     </div>
   );
-});
+};
 
 export default Portfolio;

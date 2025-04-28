@@ -1,6 +1,6 @@
 "use client";
 
-import { forwardRef, useState } from "react";
+import { useRef, useState } from "react";
 import styles from "./services.module.css";
 import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
@@ -52,9 +52,9 @@ const services = [
       "We offer tailored architectural and interior design services that blend functionality, aesthetics, and context, delivering thoughtful, high-quality environments that reflect each project's unique identity and purpose.",
   },
 ];
+const Services = () => {
+  const servicesRef = useRef();
 
-
-const Services = forwardRef(function Services(_, ref) {
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggle = (index) => {
@@ -62,16 +62,15 @@ const Services = forwardRef(function Services(_, ref) {
   };
 
   return (
-    <section ref={ref} className={styles.servicesSection}>
-      {/* <h2 className={styles.heading}>Our Services</h2> */}
-      
-       <div className={styles.heading}>
-              <motion.h2 {...fadeInViewProps}>Project Expertise</motion.h2>
-              <motion.p {...fadeInViewProps}>
-              16 years of experience have allowed us to craft a service approach tailored to the scale, ambition, and complexity of every project we undertake.
-              </motion.p>
-            </div>
-
+    <section ref={servicesRef} id="services" className={styles.servicesSection}>
+      <div className={styles.heading}>
+        <motion.h2 {...fadeInViewProps}>Project Expertise</motion.h2>
+        <motion.p {...fadeInViewProps}>
+          16 years of experience have allowed us to craft a service approach
+          tailored to the scale, ambition, and complexity of every project we
+          undertake.
+        </motion.p>
+      </div>
 
       <div className={styles.accordion}>
         {services.map((service, index) => (
@@ -105,6 +104,6 @@ const Services = forwardRef(function Services(_, ref) {
       </div>
     </section>
   );
-});
+};
 
 export default Services;

@@ -15,7 +15,7 @@ const navLinks = [
   { label: "Contact", section: "contact" },
 ];
 
-export default function Header({ onScrollTo }) {
+export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   // Prevent background scroll when menu is open
@@ -30,6 +30,14 @@ export default function Header({ onScrollTo }) {
       document.body.classList.remove("no-scroll");
     };
   }, [menuOpen]);
+
+
+  const onScrollTo = (id) => {
+    const cleanId = id.replace('#', '');
+    const section = document.getElementById(cleanId);
+    section?.scrollIntoView({ behavior: 'smooth' });
+  };
+
 
   return (
     <div className={styles.container}>

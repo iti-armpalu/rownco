@@ -1,14 +1,18 @@
+'use client';
+
+import { useRef } from "react";
 import Slider from "../ui/slider";
 import styles from "./team.module.css";
 import Image from "next/image";
 import team from "@/lib/team";
 import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
-import { forwardRef } from "react";
 
-const Team = forwardRef(function Team(_, ref) {
+const Team = () => {
+  const teamRef = useRef()
+
   return (
-    <section ref={ref} className={styles.section}>
+    <section ref={teamRef} id="team" className={styles.section}>
       <div className={styles.header}>
         <motion.h2 {...fadeInViewProps}>Meet our Team</motion.h2>
         <motion.p {...fadeInViewProps}>
@@ -49,6 +53,6 @@ const Team = forwardRef(function Team(_, ref) {
       </motion.div>
     </section>
   );
-});
+};
 
 export default Team;
