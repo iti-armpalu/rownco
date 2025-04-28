@@ -34,7 +34,7 @@ export default function Home() {
         <Portfolio ref={refs.portfolio} />
         <Team ref={refs.team} />
         <div className={styles.darkBackground}>
-          <ClientLogos />
+          {/* <ClientLogos /> */}
           <Contact ref={refs.contact} />
         </div>
       </div>

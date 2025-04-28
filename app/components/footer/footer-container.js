@@ -1,9 +1,5 @@
 import React from "react";
 import styles from "./footer-container.module.css";
-import ClientLogos from "../ui/client-logos";
-import Contact from "../contact/contact";
-
-
 
 const socialLinks = [
   { name: "Instagram", url: "https://instagram.com" },
@@ -12,8 +8,6 @@ const socialLinks = [
 const FooterContainer = () => {
   return (
     <footer className={styles.footerContainer}>
-      {/* <ClientLogos logos={logos} /> */}
-      {/* <Contact /> */}
       <div className={styles.footerContent}>
         {/* <div className={styles.socialLinks}>
           {socialLinks.map((link, index) => (

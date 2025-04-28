@@ -1,35 +1,35 @@
-
-
 import Image from "next/image";
+import { urlFor } from "@/sanity/sanityImage"; // your helper function
+import { client } from "@/sanity/client"; // make sure you import your Sanity client
 import styles from "./client-logos.module.css";
 
-const logos = [
-  { name: "RAK Properties", url: "/images/logos/rak-properties-logo.svg" },
-  { name: "Belgarde Waterfront", url: "/images/logos/belgrade-waterfront-logo.svg" },
-  { name: "Callison RTKL.svg", url: "/images/logos/callisonRTKL-logo.svg" },
-];
+const LOGOS_QUERY = `*[_type == "logo"] | order(name asc) {
+  _id,
+  name,
+  logo,
+  website
+}`;
 
-const ClientLogos = () => {
+export default async function ClientLogos() {
+  // const clients = await client.fetch(LOGOS_QUERY);
+
   return (
     <div className="container">
       <section className={styles.client}>
-        <h2>Our clients</h2>
+        {/* <h2>Our clients</h2>
         <div className={styles.clientLogos}>
-          {logos.map((logo, index) => (
+          {clients.map((client) => (
             <Image
-              key={index}
-              src={logo.url}
-              alt={`Client logo ${index + 1}`}
+              key={client._id}
+              src={urlFor(client.logo).url()}
+              alt={client.name}
               className={styles.clientLogo}
               width={100}
               height={100}
             />
           ))}
-        </div>
+        </div> */}
       </section>
     </div>
   );
-};
-
-
-export default ClientLogos;
+}
