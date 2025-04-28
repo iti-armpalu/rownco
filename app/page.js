@@ -9,6 +9,8 @@ import Team from "./components/team/team";
 import styles from "./page.module.css";
 import { useEffect, useState } from "react";
 import { useSectionScroll } from "./hooks/useSectionScroll";
+import ClientLogos from "./components/ui/client-logos";
+import Contact from "./components/contact/contact";
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -31,6 +33,10 @@ export default function Home() {
         <Services ref={refs.services} />
         <Portfolio ref={refs.portfolio} />
         <Team ref={refs.team} />
+        <div className={styles.darkBackground}>
+          <ClientLogos />
+          <Contact ref={refs.contact} />
+        </div>
       </div>
     </>
   );

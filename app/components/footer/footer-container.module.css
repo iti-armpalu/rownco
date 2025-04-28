@@ -7,6 +7,7 @@
 
 .footerContent {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   width: 100%;
   margin-top: 6rem;
@@ -18,10 +19,11 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  /* padding: 1rem 2rem; */
+  
 }
 
 .socialLinks a {
-  margin-right: 2rem;
   text-decoration: none;
 }
 
@@ -36,7 +38,14 @@
   color: var(--soft-peach);
 }
 
-@media (min-width: 576px) {
+@media (min-width: 768px) {
+  /* .footerContent {
+    flex-direction: row;
+    width: 100%;
+    margin-top: 6rem;
+    border-bottom: 1px solid var(--soft-peach);
+  } */
+
   .socialLinks,
   .footerLinks {
     flex-direction: row;

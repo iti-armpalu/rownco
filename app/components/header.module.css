@@ -34,7 +34,6 @@
   width: auto;
 }
 
-
 .navLinks {
   display: none;
 }
@@ -53,7 +52,7 @@
   border: none;
   cursor: pointer;
   display: block;
-  padding:0.75rem 2rem;
+  padding: 0.75rem 2rem;
   border: 1px solid var(--rich-black);
   margin-top: -1px;
 }
@@ -107,13 +106,12 @@
   height: 100vh;
 }
 
-
 /* Desktop styles */
 @media (min-width: 768px) {
   .navLinks {
     display: flex;
   }
-  
+
   .navLink {
     text-decoration: none;
     color: var(--rich-black);
@@ -122,14 +120,16 @@
     border: 1px solid var(--rich-black);
     margin-left: -1px; /* Prevent double border between links */
     margin-top: 0; /* Prevent double border between top border */
-    transition: color 0.3s ease, background-color 0.3s ease; /* Add transition */
+    transition:
+      color 0.3s ease,
+      background-color 0.3s ease; /* Add transition */
   }
-  
+
   .navLink:hover {
     color: white; /* Change text color on hover */
     background-color: var(--rich-black); /* Change background color on hover */
   }
-  
+
   .navLink:first-child {
     margin-left: 0; /* Remove negative margin for the first link */
   }
@@ -156,7 +156,9 @@
     border: 1px solid var(--rich-black);
     margin-left: -1px; /* Prevent double border between links */
     margin-top: -1px; /* Prevent double border between top border */
-    transition: color 0.3s ease, background-color 0.3s ease; /* Add transition */
+    transition:
+      color 0.3s ease,
+      background-color 0.3s ease; /* Add transition */
   }
 }
 
@@ -206,7 +208,10 @@
   border: 1px solid var(--rich-black);
   margin-left: -1px;
   margin-top: -1px;
-  transition: color var(--transition), background-color var(--transition), padding var(--transition);
+  transition:
+    color var(--transition),
+    background-color var(--transition),
+    padding var(--transition);
 }
 
 .navLink:hover {
@@ -227,7 +232,9 @@
   margin-top: -1px;
   background: none;
   cursor: pointer;
-  transition: border var(--transition), color var(--transition);
+  transition:
+    border var(--transition),
+    color var(--transition);
 }
 
 /* Mobile Menu */
@@ -241,7 +248,7 @@
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 0;
   transition: right var(--transition);
   z-index: 2000;
 }
@@ -253,12 +260,20 @@
 .mobileNavLink {
   text-decoration: none;
   font-size: 1.25rem;
-  color: #222;
+  color: var(--rich-black);
   transition: color var(--transition);
+  border: 1px solid var(--rich-black);
+  padding: 1.5rem 4rem;
+  width: fit-content;
+  margin-top: -1; /* Prevent double border between top border */
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease; /* Add transition */
 }
 
 .mobileNavLink:hover {
-  color: var(--rich-black);
+  color: white; /* Change text color on hover */
+  background-color: var(--rich-black); /* Change background color on hover */
 }
 
 .closeButton {

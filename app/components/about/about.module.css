@@ -23,7 +23,7 @@
 }
 
 .subtitle {
-  font-size: 2.2rem;
+  /* font-size: 2.2rem; */
   line-height: 1.8rem;
 }
 
@@ -64,6 +64,7 @@
   margin-left: -2rem;
 }
 
+/* Medium devices such as tablets (768px and up) */
 @media (min-width: 768px) {
   .aboutSection {
     padding: 8rem 2rem 2rem;
@@ -73,6 +74,16 @@
     margin-bottom: 10rem;
   }
 
+  .subtitle {
+    /* font-size: 2.6rem; */
+    line-height: 2.2rem;
+  }
+
+
+}
+
+/* Large devices such as laptops (1024px and up) */
+@media only screen and (min-width: 1024px) {
   .textContainer {
     flex-direction: row;
     justify-content: space-between;

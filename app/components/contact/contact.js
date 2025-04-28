@@ -1,15 +1,15 @@
-"use client";
-
+import { forwardRef } from "react";
 import styles from "./contact.module.css";
 import ContactForm from "../ui/contact-form";
 import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
 import { submitForm } from "@/actions";
 
-export default function Contact() {
+
+const Contact = forwardRef(function Contact(_, ref) {
 
   return (
-    <section id="contact" className={styles.contact}>
+    <section ref={ref} className={styles.contact}>
       <motion.h3 {...fadeInViewProps}>
         —Have a project or want to discuss an idea?
       </motion.h3>
@@ -29,4 +29,6 @@ export default function Contact() {
       </motion.div>
     </section>
   );
-}
+});
+
+export default Contact;

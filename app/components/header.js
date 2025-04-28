@@ -76,17 +76,19 @@ export default function Header({ onScrollTo }) {
         >
           ×
         </button>
-        {navLinks.map((link) => (
-          <button
-            key={link.section}
+        {navLinks.map((link, index) => (
+          <motion.button
+            key={index}
             className={styles.mobileNavLink}
+            {...fadeInViewProps}
+            transition={{ ...fadeInViewProps.transition, delay: index * 0.1 }}
             onClick={() => {
               onScrollTo(link.section);
               setMenuOpen(false);
             }}
           >
             {link.label}
-          </button>
+          </motion.button>
         ))}
       </div>
 

@@ -1,8 +1,15 @@
-import React from "react";
+
+
 import Image from "next/image";
 import styles from "./client-logos.module.css";
 
-const ClientLogos = ({ logos }) => {
+const logos = [
+  { name: "RAK Properties", url: "/images/logos/rak-properties-logo.svg" },
+  { name: "Belgarde Waterfront", url: "/images/logos/belgrade-waterfront-logo.svg" },
+  { name: "Callison RTKL.svg", url: "/images/logos/callisonRTKL-logo.svg" },
+];
+
+const ClientLogos = () => {
   return (
     <div className="container">
       <section className={styles.client}>
@@ -23,5 +30,6 @@ const ClientLogos = ({ logos }) => {
     </div>
   );
 };
+
 
 export default ClientLogos;

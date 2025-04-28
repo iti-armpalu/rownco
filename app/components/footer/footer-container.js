@@ -3,22 +3,17 @@ import styles from "./footer-container.module.css";
 import ClientLogos from "../ui/client-logos";
 import Contact from "../contact/contact";
 
-const logos = [
-  { name: "Client 1", url: "/images/logos/logoipsum-364.svg" },
-  { name: "Client 2", url: "/images/logos/logoipsum-364.svg" },
-  { name: "Client 3", url: "/images/logos/logoipsum-364.svg" },
-];
+
 
 const socialLinks = [
-  { name: "Facebook", url: "https://facebook.com" },
-  { name: "LinkedIn", url: "https://linkedin.com" },
+  { name: "Instagram", url: "https://instagram.com" },
 ];
 
 const FooterContainer = () => {
   return (
     <footer className={styles.footerContainer}>
       {/* <ClientLogos logos={logos} /> */}
-      <Contact />
+      {/* <Contact /> */}
       <div className={styles.footerContent}>
         {/* <div className={styles.socialLinks}>
           {socialLinks.map((link, index) => (

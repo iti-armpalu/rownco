@@ -63,7 +63,16 @@ const Services = forwardRef(function Services(_, ref) {
 
   return (
     <section ref={ref} className={styles.servicesSection}>
-      <h2 className={styles.heading}>Our Services</h2>
+      {/* <h2 className={styles.heading}>Our Services</h2> */}
+      
+       <div className={styles.heading}>
+              <motion.h2 {...fadeInViewProps}>Project Expertise</motion.h2>
+              <motion.p {...fadeInViewProps}>
+              16 years of experience have allowed us to craft a service approach tailored to the scale, ambition, and complexity of every project we undertake.
+              </motion.p>
+            </div>
+
+
       <div className={styles.accordion}>
         {services.map((service, index) => (
           <motion.div

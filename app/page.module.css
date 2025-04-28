@@ -2,3 +2,9 @@
   width: 100%;
 }
 
+.darkBackground {
+  background-color: var(--rich-black);
+  color: var(--soft-peach);
+  padding: 6rem 2rem 2rem;
+  text-align: center;
+}

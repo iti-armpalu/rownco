@@ -63,15 +63,15 @@ const goPrev = useCallback(() => {
 
       <div className={styles.metaGrid}>
         <motion.div className={styles.metaItem} {...fadeInViewProps}>
-          <p className={styles.label}>Location</p>
+          <p className={styles.label}>Location:</p>
           <p className={styles.value}>{project.location}</p>
         </motion.div>
         <motion.div className={styles.metaItem} {...fadeInViewProps}>
-          <p className={styles.label}>Description</p>
+          <p className={styles.label}>Description:</p>
           <p className={styles.value}>{project.longDescription}</p>
         </motion.div>
         <motion.div className={styles.metaItem} {...fadeInViewProps}>
-          <p className={styles.label}>Involvement</p>
+          <p className={styles.label}>Involvement:</p>
           <p className={styles.value}>{project.involvement}</p>
         </motion.div>
       </div>
