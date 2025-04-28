@@ -12,13 +12,34 @@
   flex-wrap: wrap;
 }
 
+.clientLogoContainer {
+  margin: 0;
+  height: 60px;
+}
+
 .clientLogo {
+  position: relative;
   width: auto;
-  height: 100px;
-  padding: 2rem;
+  height: 60px;
+  padding: 1rem;
   border: 1px solid var(--soft-peach);
   opacity: 0.3;  
   fill: var(--soft-peach); /* This will change the fill color of the SVG */
-  margin-top: -1px;
+
   margin-right: -1px;
+}
+
+
+@media (min-width: 768px) {
+
+  .clientLogoContainer {
+    margin: 0;
+    height: 100px;
+  }
+
+  .clientLogo {
+    width: auto;
+    height: 100px;
+    padding: 2rem;
+  }
 }

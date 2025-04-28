@@ -1,25 +1,32 @@
+'use client';
+
 import Image from "next/image";
 import { urlFor } from "@/sanity/sanityImage"; // your helper function
-import { client } from "@/sanity/client"; // make sure you import your Sanity client
 import styles from "./client-logos.module.css";
+import { motion } from "framer-motion";
+import { fadeInViewProps } from "@/lib/animations";
 
-
-export default async function ClientLogos({logos}) {
-
+export default function ClientLogos({ logos }) {
   return (
     <div className="container">
       <section className={styles.client}>
         <h2>Our clients</h2>
         <div className={styles.clientLogos}>
-          {logos.map((logo) => (
-            <Image
+          {logos.map((logo, index) => (
+            <motion.div
+              className={styles.clientLogoContainer}
               key={logo._id}
-              src={urlFor(logo.logo).url()}
-              alt={logo.name}
-              className={styles.clientLogo}
-              width={100}
-              height={100}
-            />
+              {...fadeInViewProps}
+              transition={{ ...fadeInViewProps.transition, delay: index * 0.1 }}
+            >
+              <Image
+                src={urlFor(logo.logo).url()}
+                alt={logo.name}
+                className={styles.clientLogo}
+                width={100}
+                height={100}
+              />
+            </motion.div>
           ))}
         </div>
       </section>
