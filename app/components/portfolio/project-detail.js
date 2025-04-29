@@ -6,6 +6,7 @@ import styles from "./project-detail.module.css";
 import { urlFor } from "@/sanity/sanityImage";
 import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
+import Link from "next/link";
 
 export default function ProjectDetail({ project }) {
   const [selectedIndex, setSelectedIndex] = useState(null);
@@ -13,15 +14,17 @@ export default function ProjectDetail({ project }) {
   const openLightbox = (index) => setSelectedIndex(index);
   const closeLightbox = () => setSelectedIndex(null);
 
-const goNext = useCallback(() => {
-  if (!project.images?.length) return;
-  setSelectedIndex((i) => (i + 1) % project.images.length);
-}, [project.images]);
+  const goNext = useCallback(() => {
+    if (!project.images?.length) return;
+    setSelectedIndex((i) => (i + 1) % project.images.length);
+  }, [project.images]);
 
-const goPrev = useCallback(() => {
-  if (!project.images?.length) return;
-  setSelectedIndex((i) => (i - 1 + project.images.length) % project.images.length);
-}, [project.images]);
+  const goPrev = useCallback(() => {
+    if (!project.images?.length) return;
+    setSelectedIndex(
+      (i) => (i - 1 + project.images.length) % project.images.length
+    );
+  }, [project.images]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -42,9 +45,19 @@ const goPrev = useCallback(() => {
 
   return (
     <div className={styles.container}>
-      <motion.h1 className={styles.title} {...fadeInViewProps}>
-        {project.title}
-      </motion.h1>
+      <div className={styles.header}>
+        <motion.h1 className={styles.title} {...fadeInViewProps}>
+          {project.title}
+        </motion.h1>
+        <motion.a
+          href={project.officialWebsite}
+          target="_blank"
+          rel="noopener noreferrer"
+          {...fadeInViewProps}
+        >
+          Visit official project website
+        </motion.a>
+      </div>
 
       {project.features?.length > 0 && (
         <div className={styles.featureTags}>
@@ -74,6 +87,26 @@ const goPrev = useCallback(() => {
           <p className={styles.label}>Involvement:</p>
           <p className={styles.value}>{project.involvement}</p>
         </motion.div>
+        {/* <motion.div className={styles.metaItem} {...fadeInViewProps}>
+          <p className={styles.label}>Features:</p>
+          {project.features?.length > 0 && (
+            <div className={styles.featureTags}>
+              {project.features.map((feature, index) => (
+                <motion.span
+                  key={index}
+                  className={styles.featureTag}
+                  {...fadeInViewProps}
+                  transition={{
+                    ...fadeInViewProps.transition,
+                    delay: index * 0.1,
+                  }}
+                >
+                  {feature}
+                </motion.span>
+              ))}
+            </div>
+          )}
+        </motion.div> */}
       </div>
 
       <div className={styles.imageWrapper}>

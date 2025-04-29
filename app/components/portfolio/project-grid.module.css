@@ -9,7 +9,7 @@
 .card {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   margin-bottom: 2rem;
 }
 
@@ -21,6 +21,28 @@
   font-size: 1.8rem;
   line-height: 1.6rem;
   text-transform: initial;
+}
+
+.card p {
+  color: var(--dark-muted-gray);
+}
+
+.link {
+  text-decoration: none;
+  color: var(--rich-black);
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  width: fit-content;
+  border: 1px solid var(--rich-black);
+  transition:
+    color var(--transition),
+    background-color var(--transition),
+    padding var(--transition);
+}
+
+.link:hover {
+  color: var(--soft-peach);
+  background-color: var(--rich-black);
 }
 
 .image {
@@ -35,6 +57,5 @@
   .grid {
     column-count: 2;
     grid-template-columns: repeat(2, 1fr);
-
   }
 }

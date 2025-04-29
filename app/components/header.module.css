@@ -126,7 +126,7 @@
   }
 
   .navLink:hover {
-    color: white; /* Change text color on hover */
+    color: var(--soft-peach);
     background-color: var(--rich-black); /* Change background color on hover */
   }
 
@@ -215,7 +215,7 @@
 }
 
 .navLink:hover {
-  color: white;
+  color: var(--soft-peach);
   background-color: var(--rich-black);
 }
 
@@ -272,8 +272,8 @@
 }
 
 .mobileNavLink:hover {
-  color: white; /* Change text color on hover */
-  background-color: var(--rich-black); /* Change background color on hover */
+  color: var(--soft-peach);
+  background-color: var(--rich-black);
 }
 
 .closeButton {

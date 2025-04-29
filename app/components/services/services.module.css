@@ -18,7 +18,7 @@
 }
 
 .heading p {
-  color: #666;
+  color: var(--dark-muted-gray);
 }
 
 .accordion {
@@ -38,7 +38,6 @@
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-
 }
 
 .header h3 {
@@ -56,9 +55,17 @@
 .content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
+  transition:
+    max-height 0.4s ease,
+    opacity 0.4s ease,
+    padding 0.4s ease;
   opacity: 0;
   padding-top: 0;
+}
+
+.content p {
+  color: var(--dark-muted-gray);
+  margin-right: 6rem;
 }
 
 .open {
@@ -72,7 +79,6 @@
   opacity: 0;
   padding-top: 0;
 }
-
 
 /* ---------------------------------------
   Expand Icon Animation
@@ -120,7 +126,6 @@
   transform: translate(-50%, -50%) rotate(90deg);
   transition: all 0.5s ease;
 }
-
 
 @media (min-width: 576px) {
   .heading {

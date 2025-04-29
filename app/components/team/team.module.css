@@ -23,13 +23,13 @@
 .header p {
   flex: 2; /* 2/3 of the space */
   font-size: 1rem;
-  color: #666;
+  color: var(--dark-muted-gray);
 }
 
 .teamMember {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 2rem;
   width: 100%;
   text-align: left;
   margin-top: 1rem;
@@ -49,7 +49,7 @@
 
 .teamImage {
   width: 100%;
-  height: 400px;
+  height: 100%;
   object-fit: contain;
 }
 
@@ -59,7 +59,8 @@
 
 .memberPosition {
   font-size: 1rem;
-  color: #666;
+  color: var(--dark-muted-gray);
+  text-transform: uppercase;
 }
 
 .cvButton {
@@ -74,7 +75,7 @@
 
 .memberDescription {
   margin-top: 1rem;
-  color: #666;
+  color: var(--dark-muted-gray);
 }
 
 @keyframes fadeUp {
@@ -103,7 +104,9 @@
   .teamMember {
 
     flex-direction: row;
+    gap: 4rem;
     max-width: 900px;
+    margin-top: 4rem;
 
   }
 
@@ -114,6 +117,12 @@
   .teamMemberInfo {
     order: 2;
     margin: 0;
+  }
+
+  .teamImage {
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
   }
 
 
