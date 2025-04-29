@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useRef } from "react";
 import Slider from "../ui/slider";
@@ -7,9 +7,10 @@ import Image from "next/image";
 import team from "@/lib/team";
 import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
+import MoodImageOverlay from "../ui/mood-image";
 
 const Team = () => {
-  const teamRef = useRef()
+  const teamRef = useRef();
 
   return (
     <section ref={teamRef} id="team" className={styles.section}>
@@ -26,12 +27,19 @@ const Team = () => {
           {team.map((member) => (
             <div key={member.name} className={styles.teamMember}>
               <div className={styles.teamMemberImage}>
-                <Image
+                {/* <Image
                   src={member.image}
                   alt={member.name}
                   width={100}
                   height={100}
                   className={styles.teamImage}
+                /> */}
+
+                <MoodImageOverlay
+                  imageUrl={member.image}
+                  overlayOpacity={0.2}
+                  width={400}
+                  height={400}
                 />
               </div>
               <div className={styles.teamMemberInfo}>
