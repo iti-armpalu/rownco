@@ -10,7 +10,6 @@
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  margin-top: 6rem;
   border-bottom: 1px solid var(--soft-peach);
 }
 

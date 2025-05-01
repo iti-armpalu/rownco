@@ -12,7 +12,7 @@ const Hero = () => {
         />
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>
-            ARCHITECTURE AND REAL ESTATE DEVELOPMENT STUDIO
+            Architecture and real estate development studio
           </h1>
           <p className={styles.heroSubtitle}>
             Bringing creativity, elegance & timeless designs into real estate developments

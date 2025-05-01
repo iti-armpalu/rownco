@@ -20,7 +20,7 @@
 .card h2 {
   font-size: 1.8rem;
   line-height: 1.6rem;
-  text-transform: initial;
+  text-transform: uppercase;
 }
 
 .card p {

@@ -45,10 +45,10 @@ export default function Header() {
         <div className={styles.logo}>
           <Link href="/">
             <Image
-              src="/images/logo.png"
+              src="/images/rownco-logo.svg"
               alt="Logo"
               width={100}
-              height={40}
+              height={45}
               className={styles.logoImage}
             />
           </Link>

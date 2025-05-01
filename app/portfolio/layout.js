@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./layout.module.css";
+import ClientLogos from "../components/ui/client-logos";
+import Contact from "../components/contact/contact";
 
 const navLinks = [{ href: "/", label: "Home" }];
 
