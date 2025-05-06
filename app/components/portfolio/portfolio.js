@@ -1,14 +1,13 @@
 'use client';
 
 import styles from "./portfolio.module.css";
-import categories from "@/lib/categories";
 import CategoryCard from "./category-card";
 import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
 import { useRef } from "react";
 
 
-const Portfolio = () => {
+export default function Portfolio({ categories }) {
   const portfolioRef = useRef()
 
   return (
@@ -26,5 +25,3 @@ const Portfolio = () => {
     </div>
   );
 };
-
-export default Portfolio;

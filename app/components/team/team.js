@@ -3,13 +3,13 @@
 import { useRef } from "react";
 import Slider from "../ui/slider";
 import styles from "./team.module.css";
-import Image from "next/image";
-import team from "@/lib/team";
+// import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
 import MoodImageOverlay from "../ui/mood-image";
+import { urlFor } from "@/sanity/sanityImage";
 
-const Team = () => {
+export default function Team({ team }) {
   const teamRef = useRef();
 
   return (
@@ -36,7 +36,7 @@ const Team = () => {
                 /> */}
 
                 <MoodImageOverlay
-                  imageUrl={member.image}
+                  imageUrl={urlFor(member.image).url()}
                   overlayOpacity={0.2}
                   width={400}
                   height={400}
@@ -61,6 +61,4 @@ const Team = () => {
       </motion.div>
     </section>
   );
-};
-
-export default Team;
+}

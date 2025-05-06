@@ -3,13 +3,14 @@ import styles from "./category-card.module.css";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
+import { urlFor } from "@/sanity/sanityImage";
 
-export default function CategoryCard({ type, imageUrl, title, description }) {
+export default function CategoryCard({ type, image, title, description }) {
   return (
     <motion.div className={styles.category} {...fadeInViewProps}>
       <div className={styles.imageContainer}>
         <Image
-          src={imageUrl}
+          src={urlFor(image).url()}
           alt={title}
           className={styles.image}
           width={600}
@@ -19,10 +20,10 @@ export default function CategoryCard({ type, imageUrl, title, description }) {
       </div>
       <div className={styles.details}>
         <h3 className={styles.title}>{title}</h3>
-        {/* <p className={styles.description}>{description}</p> */}
+        <p className={styles.description}>{description}</p>
         <Link
           href={`/portfolio/${type}`}
-          // href={`/`}
+
           className={styles.learnMore}
         >
           Learn More
