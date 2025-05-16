@@ -1,6 +1,7 @@
 import styles from "./page.module.css";
 import { client } from "@/sanity/client";
 import ProjectGrid from "@/app/components/portfolio/project-grid";
+import PortfolioTypePageTitle from "@/app/components/ui/portfolio-type-page-title";
 
 const PROJECTS_QUERY = `*[
   _type == "project" && type == $type && defined(slug.current)
@@ -25,7 +26,7 @@ export default async function ProjectsByType({ params }) {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.heading}>{type} Projects</h1>
+      <PortfolioTypePageTitle type={type} />
       <ProjectGrid projects={projects} type={type} />
     </div>
   );

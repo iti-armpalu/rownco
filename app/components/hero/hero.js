@@ -1,7 +1,7 @@
 import styles from "./hero.module.css";
 import MoodImageOverlay from "../ui/mood-image";
 
-const Hero = () => {
+export default function Hero({ hero }) {
   return (
       <section className={styles.hero}>
         <MoodImageOverlay
@@ -20,6 +20,4 @@ const Hero = () => {
         </div>
       </section>
   );
-};
-
-export default Hero;
+}

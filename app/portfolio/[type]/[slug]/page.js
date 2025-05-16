@@ -16,10 +16,10 @@ const options = { next: { revalidate: 30 } };
 
 
 export default async function ProjectPage({ params }) {
-  const { slug } = await params;
+  const { slug, type } = await params;
 
   const project = await client.fetch(PROJECT_QUERY, { slug }, options);
   const mainImage = project?.images?.[0]?.asset;
 
-  return <ProjectDetail project={project} />;
+  return <ProjectDetail project={project} type={type} />;
 }

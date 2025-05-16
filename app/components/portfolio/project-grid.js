@@ -6,32 +6,42 @@ import styles from "./project-grid.module.css";
 import { fadeInViewProps } from "@/lib/animations";
 import Image from "next/image";
 import { urlFor } from "@/sanity/sanityImage";
+import { Masonry } from "react-plock";
 
 export default function ProjectGrid({ projects, type }) {
   return (
-    <div className={styles.grid}>
-      {projects.map((project) => (
+    <Masonry
+      items={projects}
+      config={{
+        columns: [1, 2],
+        gap: [24, 32],
+        media: [640, 1024],
+      }}
+      render={(item) => (
         <motion.div
-          key={project._id}
+          key={item._id}
           className={styles.card}
           {...fadeInViewProps}
         >
-          <h2>{project.title}</h2>
-          <p>{project.shortDescription}</p>
-          <Link href={`/portfolio/${type}/${project.slug.current}`} className={styles.link}>
+          <h2>{item.title}</h2>
+          <p>{item.shortDescription}</p>
+          <Link
+            href={`/portfolio/${type}/${item.slug.current}`}
+            className={styles.link}
+          >
             Visit project page
           </Link>
-          {project.images?.[0]?.asset?.url && (
+          {item.images?.[0]?.asset?.url && (
             <Image
-              src={project.images[0].asset.url}
-              alt={project.title}
+              src={item.images[0].asset.url}
+              alt={item.title}
               width={800}
               height={500}
               className={styles.image}
             />
           )}
         </motion.div>
-      ))}
-    </div>
+      )}
+    />
   );
 }

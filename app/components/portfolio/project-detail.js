@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
 import Link from "next/link";
 
-export default function ProjectDetail({ project }) {
+export default function ProjectDetail({ project, type }) {
   const [selectedIndex, setSelectedIndex] = useState(null);
 
   const openLightbox = (index) => setSelectedIndex(index);
@@ -43,8 +43,20 @@ export default function ProjectDetail({ project }) {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [selectedIndex, goNext, goPrev]);
 
+  function formatProjectType(type) {
+    return type
+      .replace(/-/g, ' ')
+      .replace(/\b\w/g, (l) => l.toUpperCase())
+      .replace('And', '&');
+  }
+
   return (
     <div className={styles.container}>
+
+      <Link href={`/portfolio/${type}`} className={styles.backButton}>
+        ← Back to {formatProjectType(type)} Projects
+      </Link>
+
       <div className={styles.header}>
         <motion.h1 className={styles.title} {...fadeInViewProps}>
           {project.title}
