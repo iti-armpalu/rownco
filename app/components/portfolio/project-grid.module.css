@@ -1,11 +1,3 @@
-.grid {
-  display: grid;
-  /* column-count: 1; */
-  grid-template-columns: repeat(1, 1fr);
-  gap: 2rem;
-  padding: 2rem 0;
-}
-
 .card {
   display: flex;
   flex-direction: column;
@@ -15,7 +7,7 @@
 }
 
 .card:hover {
-  transform: translateY(-6px) !important;
+  transform: translateY(-6px);
 }
 
 .card > :not(:last-child) {
@@ -57,10 +49,3 @@
   margin-top: 1rem;
 }
 
-/* Responsive grid on desktop */
-@media (min-width: 768px) {
-  .grid {
-    column-count: 2;
-    grid-template-columns: repeat(2, 1fr);
-  }
-}

@@ -18,28 +18,26 @@ export default function ProjectGrid({ projects, type }) {
         media: [640, 1024],
       }}
       render={(item) => (
-        <motion.div
-          key={item._id}
-          className={styles.card}
-          {...fadeInViewProps}
-        >
-          <h2>{item.title}</h2>
-          <p>{item.shortDescription}</p>
-          <Link
-            href={`/portfolio/${type}/${item.slug.current}`}
-            className={styles.link}
-          >
-            Visit project page
-          </Link>
-          {item.images?.[0]?.asset?.url && (
-            <Image
-              src={item.images[0].asset.url}
-              alt={item.title}
-              width={800}
-              height={500}
-              className={styles.image}
-            />
-          )}
+        <motion.div key={item._id} className={styles.cardWrapper} {...fadeInViewProps}>
+          <div className={styles.card}>
+            <h2>{item.title}</h2>
+            <p>{item.shortDescription}</p>
+            <Link
+              href={`/portfolio/${type}/${item.slug.current}`}
+              className={styles.link}
+            >
+              Visit project page
+            </Link>
+            {item.images?.[0]?.asset?.url && (
+              <Image
+                src={item.images[0].asset.url}
+                alt={item.title}
+                width={800}
+                height={500}
+                className={styles.image}
+              />
+            )}
+          </div>
         </motion.div>
       )}
     />
