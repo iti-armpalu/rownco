@@ -1,5 +1,4 @@
 import styles from "./page.module.css";
-// import { client } from "@/sanity/client";
 import ProjectGrid from "@/app/components/portfolio/project-grid";
 import PortfolioTypePageTitle from "@/app/components/ui/portfolio-type-page-title";
 import { getProjects } from "@/sanity/queries/getProjects";
