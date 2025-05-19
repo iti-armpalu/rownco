@@ -14,6 +14,7 @@ import { getServices } from "@/sanity/queries/getServices";
 import { getTeam } from "@/sanity/queries/getTeam";
 import { getCategories } from "@/sanity/queries/getCategories";
 import { getHero } from "@/sanity/queries/getHero";
+import { getAbout } from "@/sanity/queries/getAbout";
 
 export default async function Home() {
   const logos = await getLogos();
@@ -21,13 +22,14 @@ export default async function Home() {
   const team = await getTeam();
   const categories = await getCategories();
   const hero = await getHero();
+  const about = await getAbout();
 
   return (
     <>
       <Header />
       <div className={styles.page}>
         <Hero hero={hero} />
-        <About />
+        <About about={about}/>
         <Services services={services} />
         <Portfolio categories={categories} />
         <Team team={team} />

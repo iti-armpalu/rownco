@@ -135,3 +135,48 @@
 @media (min-width: 1200px) {}
 
 @media (min-width: 1400px) {}
+
+/* .teamImage {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+} */
+
+/* Responsive adjustment */
+/* @media (min-width: 768px) {
+  .teamImage {
+    width: 300px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .teamImage {
+    width: 400px;
+  }
+} */
+
+
+.teamImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 300px;
+  margin: 0 auto;
+  border-radius: 9999px;
+  overflow: hidden;
+  order: 2;
+  flex: 0 0 auto;
+}
+
+@media (min-width: 576px) {
+  .teamImage {
+    max-width: 300px;
+    border-radius: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .teamImage {
+    max-width: 400px;
+  }
+}

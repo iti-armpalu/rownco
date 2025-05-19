@@ -114,3 +114,10 @@
     line-height: 3rem;
   }
 }
+
+
+
+.image {
+  height: 400px;
+  width: 100%;
+}

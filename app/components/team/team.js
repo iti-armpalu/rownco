@@ -26,33 +26,22 @@ export default function Team({ team }) {
         <Slider>
           {team.map((member) => (
             <div key={member.name} className={styles.teamMember}>
-              <div className={styles.teamMemberImage}>
-                {/* <Image
-                  src={member.image}
-                  alt={member.name}
-                  width={100}
-                  height={100}
-                  className={styles.teamImage}
-                /> */}
-
+              {/* <div className={styles.teamMemberImage}> */}
                 <MoodImageOverlay
-                  imageUrl={urlFor(member.image).url()}
-                  overlayOpacity={0.2}
-                  width={400}
-                  height={400}
+                  src={urlFor(member.image).url()}
+                  alt={member.imageAlt}
+                  // overlayOpacity={0.2}
+                  // width={300}
+                  // height={300}
+                  className={styles.teamImage}
+                  overlayOpacity={0.25}
+                  priority
                 />
-              </div>
+              {/* </div> */}
               <div className={styles.teamMemberInfo}>
                 <h3 className={styles.memberName}>{member.name}</h3>
                 <p className={styles.memberPosition}>{member.position}</p>
-                {/* <a
-                href={member.cvLink}
-                className={styles.cvButton}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View CV
-              </a> */}
+
                 <p className={styles.memberDescription}>{member.description}</p>
               </div>
             </div>

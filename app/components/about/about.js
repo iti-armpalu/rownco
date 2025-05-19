@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
 import { useRef } from "react";
 import MoodImageOverlay from "../ui/mood-image";
 import styles from "./about.module.css";
-import about from "@/lib/about";
+// import about from "@/lib/about";
 import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
+import { urlFor } from "@/sanity/sanityImage";
 
-
-const About = () => {
-  const aboutRef = useRef()
+export default function About({ about }) {
+  const aboutRef = useRef();
 
   return (
     <section ref={aboutRef} id="about" className={styles.aboutSection}>
-      {about.map((section, index) => (
+      {about.map((about, index) => (
         <motion.div key={index} className={styles.aboutElement}>
           <div
             className={`${styles.textContainer} ${
@@ -21,7 +21,7 @@ const About = () => {
             }`}
           >
             <div className={styles.title}>
-              {section.title.map((word, wordIndex) => (
+              {about.title.map((word, wordIndex) => (
                 <motion.h2
                   key={wordIndex}
                   className={`${styles.subtitle} ${
@@ -38,7 +38,7 @@ const About = () => {
               {...fadeInViewProps}
               transition={{ ...fadeInViewProps.transition, delay: 0.4 }}
             >
-              {section.description}
+              {about.description}
             </motion.p>
           </div>
 
@@ -49,17 +49,25 @@ const About = () => {
             {...fadeInViewProps}
             transition={{ ...fadeInViewProps.transition, delay: 0.6 }}
           >
-            <MoodImageOverlay
-              imageUrl={section.image}
+            {/* <MoodImageOverlay
+              imageUrl={urlFor(about.image).url()}
               overlayOpacity={0.5}
-              width={section.width}
-              height={section.height}
+              width={about.width}
+              height='400px'
+            /> */}
+
+            <MoodImageOverlay
+              src={urlFor(about.image).url()}
+              // overlayOpacity={0.2}
+              // width={300}
+              // height={300}
+              className={styles.image}
+              overlayOpacity={0.5}
+              priority
             />
           </motion.div>
         </motion.div>
       ))}
     </section>
   );
-};
-
-export default About;
+}
