@@ -1,7 +1,7 @@
 /* styles/PortfolioCategory.module.css */
 .category {
   display: inline-flex;
-  flex-direction: column;  /* Align image and details vertically */
+  flex-direction: column; /* Align image and details vertically */
   overflow: hidden;
   margin-bottom: 3rem;
   width: 100%;
@@ -13,7 +13,7 @@
 
 .imageContainer {
   width: 100%;
-  height: 400px;  /* Adjust height based on image aspect ratio */
+  height: 400px; /* Adjust height based on image aspect ratio */
   overflow: hidden;
   object-fit: cover;
 }
@@ -21,12 +21,16 @@
 .image {
   /* border-radius: 8px; */
   width: 100%;
-  height: 100%;  /* Adjust height based on image aspect ratio */
-  object-fit: cover;   /* Ensures the image covers the container fully */
+  height: 100%; /* Adjust height based on image aspect ratio */
+  object-fit: cover; /* Ensures the image covers the container fully */
 }
 
 .details {
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  padding-top: 1rem;
   text-align: center;
 }
 
@@ -41,16 +45,21 @@
 }
 
 .learnMore {
-  /* color: var(--soft-peach); */
   text-decoration: none;
-  /* font-weight: bold; */
+  color: var(--rich-black);
+  font-size: 1rem;
+  padding: 1.5rem 2rem;
+  width: fit-content;
+  border: 1px solid var(--rich-black);
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease;
 }
 
 .learnMore:hover {
-  text-decoration: underline;
+  color: var(--soft-peach);
+  background-color: var(--rich-black); /* Change background color on hover */
 }
-
-
 
 @media (min-width: 768px) {
   .category {
@@ -58,21 +67,26 @@
     max-width: 100%;
   }
 
+  .details {
+    padding: 20px;
+    text-align: center;
+  }
+
   /* Override image heights for specific categories */
-.category:nth-child(1) .imageContainer {
-  height: 500px; /* Residential - taller image */
-  width: 100%;
-}
+  .category:nth-child(1) .imageContainer {
+    height: 500px; /* Residential - taller image */
+    width: 100%;
+  }
 
-.category:nth-child(2) .imageContainer {
-  height: 750px; /* Retail - smaller image */
-}
+  .category:nth-child(2) .imageContainer {
+    height: 750px; /* Retail - smaller image */
+  }
 
-.category:nth-child(3) .imageContainer {
-  height: 780px; /* Hospitality - taller image */
-}
+  .category:nth-child(3) .imageContainer {
+    height: 780px; /* Hospitality - taller image */
+  }
 
-.category:nth-child(4) .imageContainer {
-  height: 650px; /* Cultural - default size */
-}
+  .category:nth-child(4) .imageContainer {
+    height: 650px; /* Cultural - default size */
+  }
 }

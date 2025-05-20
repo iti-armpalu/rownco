@@ -4,6 +4,8 @@ import { useRef, useState } from "react";
 import styles from "./services.module.css";
 import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
+import MoodImageOverlay from "../ui/mood-image";
+import { urlFor } from "@/sanity/sanityImage";
 
 export default function Services({ services }) {
   const servicesRef = useRef();
@@ -34,7 +36,7 @@ export default function Services({ services }) {
             transition={{ ...fadeInViewProps.transition, delay: index * 0.1 }}
           >
             <div className={styles.toggleBtn} onClick={() => toggle(index)}>
-              <h3>{service.title}</h3>
+              <h4>{service.title}</h4>
               <div
                 className={`${styles.iconSurvey} ${openIndex === index ? styles.active : ""}`}
               >
@@ -49,6 +51,15 @@ export default function Services({ services }) {
                   openIndex === index ? styles.open : styles.closed
                 }`}
               >
+                {service.image && (
+                  <MoodImageOverlay
+                    src={urlFor(service.image).url()}
+                    alt={service.imageAlt || "Service image"}
+                    className={styles.image}
+                    overlayOpacity={0.2}
+                    priority
+                  />
+                )}
                 <p>{service.details}</p>
               </div>
             )}

@@ -28,8 +28,9 @@
   text-decoration: none;
   color: var(--rich-black);
   font-size: 1rem;
-  padding: 1rem 2rem;
+  padding: 1rem 1rem;
   width: fit-content;
+  text-align: center;
   border: 1px solid var(--rich-black);
   transition:
     color var(--transition),
@@ -49,3 +50,8 @@
   margin-top: 1rem;
 }
 
+@media (min-width: 576px) {
+  .link {
+    padding: 1.5rem 2rem;
+  }
+}

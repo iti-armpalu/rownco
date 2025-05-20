@@ -6,6 +6,7 @@ import Image from "next/image";
 import styles from "./header.module.css";
 import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
+import HamburgerButton from "./ui/buttons/hamburger-button";
 
 const navLinks = [
   { label: "About", section: "about" },
@@ -31,59 +32,48 @@ export default function Header() {
     };
   }, [menuOpen]);
 
-
   const onScrollTo = (id) => {
-    const cleanId = id.replace('#', '');
+    const cleanId = id.replace("#", "");
     const section = document.getElementById(cleanId);
-    section?.scrollIntoView({ behavior: 'smooth' });
+    section?.scrollIntoView({ behavior: "smooth" });
   };
-
 
   return (
     <div className={styles.container}>
-      <motion.header className={styles.header} {...fadeInViewProps}>
-        <div className={styles.logo}>
-          <Link href="/">
-            <Image
-              src="/images/rownco-logo.svg"
-              alt="Logo"
-              width={100}
-              height={45}
-              className={styles.logoImage}
-            />
-          </Link>
-        </div>
+      <div lassName={styles.headerWrapper}>
+        <motion.header className={styles.header} {...fadeInViewProps}>
+          <div className={styles.logo}>
+            <Link href="/">
+              <Image
+                src="/images/rownco-logo.svg"
+                alt="Logo"
+                width={100}
+                height={45}
+                className={styles.logoImage}
+              />
+            </Link>
+          </div>
 
-        <nav className={styles.navLinks}>
-          {navLinks.map((link) => (
-            <button
-              key={link.section}
-              className={styles.navLink}
-              onClick={() => onScrollTo(link.section)}
-            >
-              {link.label}
-            </button>
-          ))}
-        </nav>
-
-        <button
-          className={styles.hamburger}
-          onClick={() => setMenuOpen(true)}
-          aria-label="Open menu"
-        >
-          ☰
-        </button>
-      </motion.header>
+          <nav className={styles.navLinks}>
+            {navLinks.map((link) => (
+              <button
+                key={link.section}
+                className={styles.navLink}
+                onClick={() => onScrollTo(link.section)}
+              >
+                {link.label}
+              </button>
+            ))}
+          </nav>
+        </motion.header>
+        <HamburgerButton
+          isOpen={menuOpen}
+          toggleMenu={() => setMenuOpen(!menuOpen)}
+        />
+      </div>
 
       {/* Slide-in mobile menu */}
       <div className={`${styles.mobileMenu} ${menuOpen ? styles.open : ""}`}>
-        <button
-          className={styles.closeButton}
-          onClick={() => setMenuOpen(false)}
-          aria-label="Close menu"
-        >
-          ×
-        </button>
         {navLinks.map((link, index) => (
           <motion.button
             key={index}

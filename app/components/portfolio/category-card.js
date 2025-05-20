@@ -26,7 +26,7 @@ export default function CategoryCard({ type, image, title, description }) {
 
           className={styles.learnMore}
         >
-          Learn More
+          View {title} 
         </Link>
       </div>
     </motion.div>

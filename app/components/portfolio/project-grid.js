@@ -26,7 +26,7 @@ export default function ProjectGrid({ projects, type }) {
               href={`/portfolio/${type}/${item.slug.current}`}
               className={styles.link}
             >
-              Visit project page
+              View project details
             </Link>
             {item.images?.[0]?.asset?.url && (
               <Image

@@ -6,12 +6,12 @@
 .header{
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 1rem;
   width: 100%;
   margin: 0 auto; /* Center the element */
   text-align: start;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .header h2 {
@@ -99,6 +99,7 @@
 @media (min-width: 768px) {
   .header {
     width: calc(100% - 10rem); /* Adjust width based on desired padding */
+    gap: 4rem;
   }
 
   .teamMember {
@@ -162,7 +163,6 @@
   aspect-ratio: 1 / 1;
   max-width: 300px;
   margin: 0 auto;
-  border-radius: 9999px;
   overflow: hidden;
   order: 2;
   flex: 0 0 auto;

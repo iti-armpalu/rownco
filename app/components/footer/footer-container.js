@@ -22,6 +22,9 @@ const FooterContainer = () => {
           ))}
         </div> */}
         <div className={styles.footerLinks}>
+          <a href="https://www.instagram.com/rownco_/">
+            Instagram
+          </a>
           <p>hello@rownco.com</p>
           <p>
             &copy; {new Date().getFullYear()} Row & Co. All rights reserved.
