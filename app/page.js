@@ -27,13 +27,13 @@ export default async function Home() {
   return (
     <>
       <Header />
-      <div className={styles.page}>
+      <div className={styles.page} data-theme="light">
         <Hero hero={hero} />
         <About about={about}/>
         <Services services={services} />
         <Portfolio categories={categories} />
         <Team team={team} />
-        <div className={styles.darkBackground}>
+        <div className={styles.darkBackground} data-theme="dark">
           <ClientLogos logos={logos} />
           <Contact />
         </div>

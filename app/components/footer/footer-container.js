@@ -7,7 +7,7 @@ const socialLinks = [
 
 const FooterContainer = () => {
   return (
-    <footer className={styles.footerContainer}>
+    <footer className={styles.footerContainer} data-theme="dark">
       <div className={styles.footerContent}>
         {/* <div className={styles.socialLinks}>
           {socialLinks.map((link, index) => (

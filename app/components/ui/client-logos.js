@@ -9,7 +9,7 @@ import { fadeInViewProps } from "@/lib/animations";
 export default function ClientLogos({ logos }) {
   return (
     <div className="container">
-      <section className={styles.client}>
+      <section className={styles.client} data-theme="dark">
         <h2>Our clients</h2>
         <div className={styles.clientLogos}>
           {logos.map((logo, index) => (

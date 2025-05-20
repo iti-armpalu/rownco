@@ -40,7 +40,7 @@ export default function Header() {
 
   return (
     <div className={styles.container}>
-      <div lassName={styles.headerWrapper}>
+      <div className={styles.headerWrapper}>
         <motion.header className={styles.header} {...fadeInViewProps}>
           <div className={styles.logo}>
             <Link href="/">
