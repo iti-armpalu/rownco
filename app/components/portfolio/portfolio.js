@@ -12,7 +12,7 @@ export default function Portfolio({ categories }) {
 
   return (
     <div className="container">
-      <section ref={portfolioRef} id="portfolio" className={styles.portfolio}>
+      <section ref={portfolioRef} id="portfolio" data-theme="light" className={styles.portfolio}>
         <motion.h2 {...fadeInViewProps} className={styles.heading}>
           Portfolio
         </motion.h2>

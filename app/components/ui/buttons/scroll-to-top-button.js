@@ -3,36 +3,6 @@
 import { useEffect, useState } from "react";
 import styles from "./scroll-to-top-button.module.css";
 
-// export default function ScrollToTopButton() {
-//   const [visible, setVisible] = useState(false);
-//   const [scrollY, setScrollY] = useState(0);
-
-//   useEffect(() => {
-//     const handleScroll = () => {
-//       const y = window.scrollY;
-//       setScrollY(y);
-//       setVisible(y > 100);
-//     };
-
-//     window.addEventListener("scroll", handleScroll);
-//     return () => window.removeEventListener("scroll", handleScroll);
-//   }, []);
-
-//   const scrollToTop = () => {
-//     window.scrollTo({ top: 0, behavior: "smooth" });
-//   };
-
-//   return (
-//     <button
-//       onClick={scrollToTop}
-//       className={`${styles.scrollButton} ${visible ? styles.visible : ""}`}
-//       style={{ bottom: `calc(2rem + ${Math.min(scrollY * 0.05, 50)}px)` }}
-//     >
-//       ↑ Top
-//     </button>
-//   );
-// }
-
 export default function ScrollToTopButton() {
   const [visible, setVisible] = useState(false);
   const [scrollY, setScrollY] = useState(0);
@@ -82,7 +52,26 @@ export default function ScrollToTopButton() {
       }`}
       style={{ bottom: `calc(2rem + ${Math.min(scrollY * 0.05, 50)}px)` }}
     >
-      <span className={styles.icon}>↑</span>
+      <span className={styles.icon}>
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            {" "}
+            <path
+              d="M12 4V20M12 4L18 10M12 4L6 10"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            ></path>{" "}
+          </g>
+        </svg>
+      </span>
       <span className={styles.label}>Top</span>
     </button>
   );

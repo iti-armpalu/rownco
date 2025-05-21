@@ -20,25 +20,6 @@
   z-index: 1;
 }
 
-.logo {
-  /* display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding:0.75rem 2rem;
-  border: 1px solid var(--rich-black);
-  margin-top: -1px; */
-  display: flex;
-  align-items: center;
-  padding: 0.75rem 2rem;
-  border: 1px solid var(--rich-black);
-  margin-top: -1px;
-  transition: border var(--transition);
-}
-
-.logoImage {
-  max-height: 45px;
-  width: auto;
-}
 
 .navLinks {
   display: none;
@@ -187,14 +168,14 @@
 .logo {
   display: flex;
   align-items: center;
-  padding: 0.55rem 2rem;
+  padding: 0.5rem 2rem;
   border: 1px solid var(--rich-black);
   margin-top: -1px;
   transition: border var(--transition);
 }
 
 .logoImage {
-  /* max-height: 39px; */
+  height: 38px;
   width: auto;
 }
 
@@ -207,7 +188,7 @@
   text-decoration: none;
   color: var(--rich-black);
   font-size: 1rem;
-  padding: 1.5rem 2rem;
+  padding: 1.5rem 1.5rem;
   border: 1px solid var(--rich-black);
   margin-left: -1px;
   margin-top: -1px;
@@ -217,14 +198,18 @@
     padding var(--transition);
 }
 
+.navLink:last-child {
+  color: var(--soft-peach);
+  background-color: var(--rich-purple);
+}
+
 .navLink:hover {
   color: var(--soft-peach);
   background-color: var(--rich-black);
 }
 
-.navLink:first-child {
-  margin-left: 0;
-}
+
+
 
 /* Hamburger */
 .hamburger {
@@ -294,15 +279,19 @@
   left: 0;
   width: 100vw;
   height: 100vh;
+  overflow-y: hidden;
   background: rgba(0, 0, 0, 0.6); /* Adjust opacity */
   z-index: 8; /* Just below .sideMenu (z-index: 4) */
   transition: opacity 0.3s ease-in-out;
 }
 
-/* Prevent scroll when open */
-.no-scroll {
-  overflow: hidden;
-  height: 100vh;
+.hamburgerWrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem 2rem;
+  border: 1px solid var(--rich-black);
+  margin-top: -1px;
 }
 
 /* Desktop View */
@@ -318,8 +307,36 @@
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
+
+  .logoImage {
+    height: 47px;
+    width: auto;
+  } 
+
   .navLink {
-    padding: 1.5rem 4rem;
+    padding: 1.5rem 1.6rem;
+  }
+
+  .navLink:last-of-type {
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navLink {
+    padding: 1.5rem 3rem;
+  }
+}
+
+@media (min-width: 1440px) {
+
+  .logoImage {
+    height: 63px;
+    width: auto;
+  } 
+
+  .navLink {
+    padding: 2rem 4rem;
   }
 }

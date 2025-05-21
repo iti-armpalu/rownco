@@ -1,9 +1,14 @@
 :root {
-  --soft-lilac: #EFEEFF;
-  --rich-purple: #110B2D;
-  --rich-black: #181818;
+  /* --soft-lilac: #EFEEFF; */
+  --soft-lilac: #d5d0ca;
+  /* --rich-purple: #110B2D; */
+  --rich-purple: #535947;
+
+  /* --rich-black: #181818; */
+  --rich-black: #373b2f;
+
   --soft-peach: #F4E7D7;
-  --dark-muted-gray: #4C516D;
+  --dark-muted-gray: #73766c;
 
   --transition: 0.3s ease;
 }
@@ -120,6 +125,14 @@ p {
   color: var(--rich-black);
   font-family: 'Rubik', sans-serif;
 }
+
+.no-scroll {
+  overflow: hidden;
+  height: 100%;
+  touch-action: none;
+  overscroll-behavior: none;
+}
+
 
 
 

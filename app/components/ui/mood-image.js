@@ -33,7 +33,7 @@ export default function MoodImageOverlay({ src, alt = '', className = '', priori
         className={styles.image}
         priority={priority}
       />
-      <div className={styles.overlay} style={{ backgroundColor: `rgba(17, 11, 45, ${overlayOpacity})` }}
+      <div className={styles.overlay} style={{ backgroundColor: `rgba(83, 90, 72, ${overlayOpacity})` }}
       />
     </div>
   );

@@ -12,7 +12,7 @@ export default function Hero({ hero }) {
           <MoodImageOverlay
             src={urlFor(hero.image).url()}
             className={styles.image}
-            overlayOpacity={0.6}
+            overlayOpacity={0.2}
             priority
           />
 

@@ -22,20 +22,34 @@ export default function Header() {
   // Prevent background scroll when menu is open
   useEffect(() => {
     if (menuOpen) {
-      document.body.classList.add("no-scroll");
+      document.documentElement.classList.add("no-scroll"); // <html>
+      document.body.classList.add("no-scroll"); // <body>
     } else {
+      document.documentElement.classList.remove("no-scroll");
       document.body.classList.remove("no-scroll");
     }
 
     return () => {
+      document.documentElement.classList.remove("no-scroll");
       document.body.classList.remove("no-scroll");
     };
   }, [menuOpen]);
 
   const onScrollTo = (id) => {
-    const cleanId = id.replace("#", "");
-    const section = document.getElementById(cleanId);
-    section?.scrollIntoView({ behavior: "smooth" });
+    // const section = document.getElementById(cleanId);
+    // section?.scrollIntoView({ behavior: "smooth" });
+
+    // Close menu
+    setMenuOpen(false);
+
+    // Use a timeout to scroll after menu is closed
+    setTimeout(() => {
+      const cleanId = id.replace("#", "");
+      const section = document.getElementById(cleanId);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100); // Delay slightly to let scroll lock reset
   };
 
   return (
@@ -48,7 +62,7 @@ export default function Header() {
                 src="/images/rownco-logo.svg"
                 alt="Logo"
                 width={100}
-                height={45}
+                height={44}
                 className={styles.logoImage}
               />
             </Link>
@@ -65,11 +79,15 @@ export default function Header() {
               </button>
             ))}
           </nav>
+
+
         </motion.header>
-        <HamburgerButton
-          isOpen={menuOpen}
-          toggleMenu={() => setMenuOpen(!menuOpen)}
-        />
+       
+          <HamburgerButton
+            isOpen={menuOpen}
+            toggleMenu={() => setMenuOpen(!menuOpen)}
+          />
+
       </div>
 
       {/* Slide-in mobile menu */}

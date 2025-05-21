@@ -13,7 +13,7 @@ export default function Team({ team }) {
   const teamRef = useRef();
 
   return (
-    <section ref={teamRef} id="team" className={styles.section}>
+    <section ref={teamRef} id="team" className={styles.section} data-theme="light">
       <div className={styles.header}>
         <motion.h2 {...fadeInViewProps}>Meet our Team</motion.h2>
         <motion.p {...fadeInViewProps}>

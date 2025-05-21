@@ -1,10 +1,19 @@
-/* components/services/services-section.module.css */
+.section {
+  transition: background-color 0.5s ease;
+  background-color: var(--soft-lilac);
+}
 
-.servicesSection {
-  padding: 4rem 2rem;
+.darkBackground {
+  color: var(--soft-lilac);
+  background-color: var(--rich-purple);
+}
+
+.services {
+  padding: 8rem 2rem;
   max-width: 1000px;
   margin: 0 auto;
 }
+
 
 .heading {
   display: flex;
@@ -28,9 +37,15 @@
 }
 
 .item {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--rich-black);
   padding-bottom: 1rem;
+  /* transition: border-bottom 0.5s ease; */
 }
+
+.lightBorder {
+  border-bottom: 1px solid var(--soft-lilac);
+}
+
 
 .toggleBtn {
   width: 100%;
@@ -180,4 +195,3 @@
     height: 200px;
   }
 }
-

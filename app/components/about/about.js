@@ -3,7 +3,6 @@
 import { useRef } from "react";
 import MoodImageOverlay from "../ui/mood-image";
 import styles from "./about.module.css";
-// import about from "@/lib/about";
 import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
 import { urlFor } from "@/sanity/sanityImage";
@@ -12,7 +11,7 @@ export default function About({ about }) {
   const aboutRef = useRef();
 
   return (
-    <section ref={aboutRef} id="about" className={styles.aboutSection}>
+    <section ref={aboutRef} id="about" data-theme="light" className={styles.aboutSection}>
       {about.map((about, index) => (
         <motion.div key={index} className={styles.aboutElement}>
           <div
@@ -49,20 +48,10 @@ export default function About({ about }) {
             {...fadeInViewProps}
             transition={{ ...fadeInViewProps.transition, delay: 0.6 }}
           >
-            {/* <MoodImageOverlay
-              imageUrl={urlFor(about.image).url()}
-              overlayOpacity={0.5}
-              width={about.width}
-              height='400px'
-            /> */}
-
             <MoodImageOverlay
               src={urlFor(about.image).url()}
-              // overlayOpacity={0.2}
-              // width={300}
-              // height={300}
               className={styles.image}
-              overlayOpacity={0.5}
+              overlayOpacity={0.1}
               priority
             />
           </motion.div>
