@@ -6,32 +6,18 @@
   overflow: hidden; /* Ensure no overflow */
 }
 
+.headerWrapper {
+  position: relative;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 1rem 0;
   border-top: 1px solid var(--rich-black);
-}
-
-.logo {
-  /* display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding:0.75rem 2rem;
-  border: 1px solid var(--rich-black);
-  margin-top: -1px; */
-  display: flex;
-  align-items: center;
-  padding: 0.75rem 2rem;
-  border: 1px solid var(--rich-black);
-  margin-top: -1px;
-  transition: border var(--transition);
-}
-
-.logoImage {
-  max-height: 39px;
-  width: auto;
+  position: relative; /* Required for z-index to work */
+  z-index: 1;
 }
 
 
@@ -43,16 +29,19 @@
   margin-left: 2rem;
   text-decoration: none;
   color: #333;
+  background-color: transparent;
   font-weight: 500;
 }
 
 .hamburger {
-  font-size: 2.2rem;
   background: none;
   border: none;
   cursor: pointer;
   display: block;
-  padding:0.75rem 2rem;
+  text-decoration: none;
+  color: var(--rich-black);
+  font-size: 1rem;
+  padding: 1.5rem 2rem;
   border: 1px solid var(--rich-black);
   margin-top: -1px;
 }
@@ -69,7 +58,7 @@
   flex-direction: column;
   gap: 2rem;
   transition: right 0.3s ease;
-  z-index: 2000;
+  z-index: 5;
 }
 
 .mobileMenu.open {
@@ -90,15 +79,7 @@
   cursor: pointer;
 }
 
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 1500;
-}
+
 
 /* Prevent scrolling when class is applied */
 .no-scroll {
@@ -106,13 +87,12 @@
   height: 100vh;
 }
 
-
 /* Desktop styles */
 @media (min-width: 768px) {
   .navLinks {
     display: flex;
   }
-  
+
   .navLink {
     text-decoration: none;
     color: var(--rich-black);
@@ -120,15 +100,17 @@
     padding: 1.5rem 2rem;
     border: 1px solid var(--rich-black);
     margin-left: -1px; /* Prevent double border between links */
-    margin-top: -1px; /* Prevent double border between top border */
-    transition: color 0.3s ease, background-color 0.3s ease; /* Add transition */
+    margin-top: 0; /* Prevent double border between top border */
+    transition:
+      color 0.3s ease,
+      background-color 0.3s ease; /* Add transition */
   }
-  
+
   .navLink:hover {
-    color: white; /* Change text color on hover */
+    color: var(--soft-peach);
     background-color: var(--rich-black); /* Change background color on hover */
   }
-  
+
   .navLink:first-child {
     margin-left: 0; /* Remove negative margin for the first link */
   }
@@ -155,7 +137,9 @@
     border: 1px solid var(--rich-black);
     margin-left: -1px; /* Prevent double border between links */
     margin-top: -1px; /* Prevent double border between top border */
-    transition: color 0.3s ease, background-color 0.3s ease; /* Add transition */
+    transition:
+      color 0.3s ease,
+      background-color 0.3s ease; /* Add transition */
   }
 }
 
@@ -176,19 +160,22 @@
   align-items: center;
   margin: 1rem 0;
   border-top: 1px solid var(--rich-black);
+  position: relative; /* Required for z-index to work */
+  z-index: 1;
+
 }
 
 .logo {
   display: flex;
   align-items: center;
-  padding: 0.75rem 2rem;
+  padding: 0.5rem 2rem;
   border: 1px solid var(--rich-black);
   margin-top: -1px;
   transition: border var(--transition);
 }
 
 .logoImage {
-  max-height: 39px;
+  height: 38px;
   width: auto;
 }
 
@@ -201,32 +188,41 @@
   text-decoration: none;
   color: var(--rich-black);
   font-size: 1rem;
-  padding: 1.5rem 2rem;
+  padding: 1.5rem 1.5rem;
   border: 1px solid var(--rich-black);
   margin-left: -1px;
   margin-top: -1px;
-  transition: color var(--transition), background-color var(--transition), padding var(--transition);
+  transition:
+    color var(--transition),
+    background-color var(--transition),
+    padding var(--transition);
+}
+
+.navLink:last-child {
+  color: var(--soft-peach);
+  background-color: var(--rich-purple);
 }
 
 .navLink:hover {
-  color: white;
+  color: var(--soft-peach);
   background-color: var(--rich-black);
 }
 
-.navLink:first-child {
-  margin-left: 0;
-}
+
+
 
 /* Hamburger */
 .hamburger {
   display: block;
-  font-size: 2.2rem;
+  font-size: 2.17rem;
   padding: 0.75rem 2rem;
   border: 1px solid var(--rich-black);
   margin-top: -1px;
   background: none;
   cursor: pointer;
-  transition: border var(--transition), color var(--transition);
+  transition:
+    border var(--transition),
+    color var(--transition);
 }
 
 /* Mobile Menu */
@@ -237,12 +233,12 @@
   width: 80%;
   height: 100vh;
   background-color: var(--soft-lilac);
-  padding: 2rem;
+  padding: 6rem 2rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 0;
   transition: right var(--transition);
-  z-index: 2000;
+  z-index: 9;
 }
 
 .mobileMenu.open {
@@ -252,12 +248,20 @@
 .mobileNavLink {
   text-decoration: none;
   font-size: 1.25rem;
-  color: #222;
+  color: var(--rich-black);
   transition: color var(--transition);
+  border: 1px solid var(--rich-black);
+  padding: 1.5rem 4rem;
+  width: fit-content;
+  margin-top: -1; /* Prevent double border between top border */
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease; /* Add transition */
 }
 
 .mobileNavLink:hover {
-  color: var(--rich-black);
+  color: var(--soft-peach);
+  background-color: var(--rich-black);
 }
 
 .closeButton {
@@ -273,17 +277,21 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 1500;
-  transition: opacity var(--transition);
+  width: 100vw;
+  height: 100vh;
+  overflow-y: hidden;
+  background: rgba(0, 0, 0, 0.6); /* Adjust opacity */
+  z-index: 8; /* Just below .sideMenu (z-index: 4) */
+  transition: opacity 0.3s ease-in-out;
 }
 
-/* Prevent scroll when open */
-.no-scroll {
-  overflow: hidden;
-  height: 100vh;
+.hamburgerWrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem 2rem;
+  border: 1px solid var(--rich-black);
+  margin-top: -1px;
 }
 
 /* Desktop View */
@@ -299,8 +307,36 @@
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
+
+  .logoImage {
+    height: 47px;
+    width: auto;
+  } 
+
   .navLink {
-    padding: 1.5rem 4rem;
+    padding: 1.5rem 1.6rem;
+  }
+
+  .navLink:last-of-type {
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navLink {
+    padding: 1.5rem 3rem;
+  }
+}
+
+@media (min-width: 1440px) {
+
+  .logoImage {
+    height: 63px;
+    width: auto;
+  } 
+
+  .navLink {
+    padding: 2rem 4rem;
   }
 }

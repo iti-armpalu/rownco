@@ -121,7 +121,7 @@
   gap: 1rem;
   padding: 1rem 0;
   scroll-snap-type: x mandatory; /* Optional: snap scroll */
-  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  /* -webkit-overflow-scrolling: touch; */
   margin-top: 6rem;
 }
 

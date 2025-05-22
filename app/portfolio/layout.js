@@ -6,6 +6,9 @@ import Image from "next/image";
 import styles from "./layout.module.css";
 import ClientLogos from "../components/ui/client-logos";
 import Contact from "../components/contact/contact";
+import { motion } from "framer-motion";
+import { fadeInViewProps } from "@/lib/animations";
+import HamburgerButton from "../components/ui/buttons/hamburger-button";
 
 const navLinks = [{ href: "/", label: "Home" }];
 
@@ -28,54 +31,54 @@ export default function PortfolioLayout({ children }) {
   return (
     <>
       <div className={styles.container}>
-        <header className={styles.header}>
-          <div className={styles.logo}>
-            <Link href="/">
-              <Image
-                src="/images/logo.png"
-                alt="Logo"
-                width={100}
-                height={40}
-                className={styles.logoImage}
-              />
-            </Link>
-          </div>
-
-          <nav className={styles.navLinks}>
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className={styles.navLink}>
-                {link.label}
+        <div className={styles.headerWrapper}>
+          <motion.header className={styles.header} {...fadeInViewProps}>
+            <div className={styles.logo}>
+              <Link href="/">
+                <Image
+                  src="/images/rownco-logo.svg"
+                  alt="Logo"
+                  width={100}
+                  height={44}
+                  className={styles.logoImage}
+                />
               </Link>
-            ))}
-          </nav>
+            </div>
 
-          <button
-            className={styles.hamburger}
-            onClick={() => setMenuOpen(true)}
-            aria-label="Open menu"
-          >
-            ☰
-          </button>
-        </header>
+            <nav className={styles.navLinks}>
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={styles.navLink}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </motion.header>
+
+          <HamburgerButton
+            isOpen={menuOpen}
+            toggleMenu={() => setMenuOpen(!menuOpen)}
+          />
+        </div>
 
         {/* Slide-in mobile menu */}
         <div className={`${styles.mobileMenu} ${menuOpen ? styles.open : ""}`}>
-          <button
-            className={styles.closeButton}
-            onClick={() => setMenuOpen(false)}
-            aria-label="Close menu"
-          >
-            ×
-          </button>
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
+          {navLinks.map((link, index) => (
+            <motion.button
+              key={index}
               className={styles.mobileNavLink}
-              onClick={() => setMenuOpen(false)}
+              {...fadeInViewProps}
+              transition={{ ...fadeInViewProps.transition, delay: index * 0.1 }}
+              onClick={() => {
+                onScrollTo(link.section);
+                setMenuOpen(false);
+              }}
             >
               {link.label}
-            </Link>
+            </motion.button>
           ))}
         </div>
 

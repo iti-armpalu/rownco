@@ -45,14 +45,13 @@ export default function ProjectDetail({ project, type }) {
 
   function formatProjectType(type) {
     return type
-      .replace(/-/g, ' ')
+      .replace(/-/g, " ")
       .replace(/\b\w/g, (l) => l.toUpperCase())
-      .replace('And', '&');
+      .replace("And", "&");
   }
 
   return (
     <div className={styles.container}>
-
       <Link href={`/portfolio/${type}`} className={styles.backButton}>
         ← Back to {formatProjectType(type)} Projects
       </Link>
@@ -99,26 +98,6 @@ export default function ProjectDetail({ project, type }) {
           <p className={styles.label}>Involvement:</p>
           <p className={styles.value}>{project.involvement}</p>
         </motion.div>
-        {/* <motion.div className={styles.metaItem} {...fadeInViewProps}>
-          <p className={styles.label}>Features:</p>
-          {project.features?.length > 0 && (
-            <div className={styles.featureTags}>
-              {project.features.map((feature, index) => (
-                <motion.span
-                  key={index}
-                  className={styles.featureTag}
-                  {...fadeInViewProps}
-                  transition={{
-                    ...fadeInViewProps.transition,
-                    delay: index * 0.1,
-                  }}
-                >
-                  {feature}
-                </motion.span>
-              ))}
-            </div>
-          )}
-        </motion.div> */}
       </div>
 
       <div className={styles.imageWrapper}>
