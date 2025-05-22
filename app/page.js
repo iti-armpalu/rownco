@@ -27,7 +27,7 @@ export default async function Home() {
   return (
     <>
       <Header />
-      <div className={styles.page} data-theme="light">
+      <div className={styles.page}>
         <Hero hero={hero} />
         <About about={about}/>
         <Services services={services} />

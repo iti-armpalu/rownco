@@ -1,6 +1,7 @@
 .section {
   transition: background-color 0.5s ease;
-  background-color: var(--soft-lilac);
+  /* background-color: var(--soft-lilac); */
+  color: var(--soft-lilac);
 }
 
 .darkBackground {
@@ -27,7 +28,8 @@
 }
 
 .heading p {
-  color: var(--dark-muted-gray);
+  /* color: var(--dark-muted-gray); */
+  color: var(--soft-lilac);;
 }
 
 .accordion {
@@ -37,7 +39,8 @@
 }
 
 .item {
-  border-bottom: 1px solid var(--rich-black);
+  /* border-bottom: 1px solid var(--rich-black); */
+  border-bottom: 1px solid var(--soft-lilac);
   padding-bottom: 1rem;
   /* transition: border-bottom 0.5s ease; */
 }
@@ -51,13 +54,10 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 0.75rem;
   cursor: pointer;
-}
-
-.header h3 {
   margin: 0;
-  font-size: 1.25rem;
 }
 
 .toggle {
@@ -83,7 +83,8 @@
 }
 
 .content p {
-  color: var(--dark-muted-gray);
+  /* color: var(--dark-muted-gray); */
+  color: var(--soft-lilac);;
   margin-right: 2rem;
 }
 
@@ -108,6 +109,10 @@
 /* ---------------------------------------
   Expand Icon Animation
 ---------------------------------------- */
+.iconSurvey {
+  margin-left: auto;
+}
+
 .iconSurvey.active {
   background: transparent;
 }
@@ -127,7 +132,8 @@
   transform: translate(-50%, -50%);
   width: 15px;
   height: 1px;
-  background: var(--rich-black);
+  /* background: var(--rich-black); */
+  background-color: var(--soft-lilac);
   border-radius: 3px;
   transition: all 0.5s ease;
 }
@@ -139,7 +145,8 @@
   transform: translate(-50%, -50%);
   width: 1px;
   height: 15px;
-  background: var(--rich-black);
+  /* background: var(--rich-black); */
+  background-color: var(--soft-lilac);
   border-radius: 3px;
   transition: all 0.5s ease;
 }
@@ -193,5 +200,48 @@
     flex: 0 0 auto;
     width: 500px;
     height: 200px;
+  }
+
+
+  .toggleBtn {
+    padding: 0.5rem 0;
+  }
+
+  .toggleBtn h4 {
+    font-size: 1.25rem;
+  }
+}
+
+
+.serviceIcon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: var(--dark-muted-gray);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.icon {
+  width: 38px;
+  height: 38px;
+  background: var(--dark-muted-gray);
+  opacity: 0.3;
+  /* animation: rotateIcon 10s linear infinite; */
+}
+
+.toggleBtn:hover .icon{
+  animation: rotateIcon 10s linear infinite;
+}
+
+@keyframes rotateIcon {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
