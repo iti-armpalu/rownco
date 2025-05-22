@@ -1,0 +1,39 @@
+
+/* Mobile Menu */
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  height: 100vh;
+  background-color: var(--soft-lilac);
+  padding: 6rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: right var(--transition);
+  z-index: 9;
+}
+
+.mobileMenu.open {
+  right: 0;
+}
+
+.mobileNavLink {
+  text-decoration: none;
+  font-size: 1.25rem;
+  color: var(--rich-black);
+  transition: color var(--transition);
+  border: 1px solid var(--rich-black);
+  padding: 1.5rem 4rem;
+  width: fit-content;
+  margin-top: -1; /* Prevent double border between top border */
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease; /* Add transition */
+}
+
+.mobileNavLink:hover {
+  color: var(--soft-peach);
+  background-color: var(--rich-black);
+}

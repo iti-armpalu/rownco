@@ -3,7 +3,6 @@
   max-width: 1400px; /* Default max-width */
   margin: 0 auto;
   padding: 0 1rem; /* Optional padding */
-  overflow: hidden; /* Ensure no overflow */
 }
 
 .headerWrapper {
@@ -80,13 +79,6 @@
 }
 
 
-
-/* Prevent scrolling when class is applied */
-.no-scroll {
-  overflow: hidden;
-  height: 100vh;
-}
-
 /* Desktop styles */
 @media (min-width: 768px) {
   .navLinks {
@@ -151,7 +143,6 @@
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 1rem;
-  overflow: hidden;
 }
 
 .header {

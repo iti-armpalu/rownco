@@ -7,6 +7,7 @@ import styles from "./header.module.css";
 import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
 import HamburgerButton from "./ui/buttons/hamburger-button";
+import MobileMenu from "./ui/mobile-menu";
 
 const navLinks = [
   { label: "About", section: "about" },
@@ -79,36 +80,22 @@ export default function Header() {
               </button>
             ))}
           </nav>
-
-
         </motion.header>
-       
-          <HamburgerButton
-            isOpen={menuOpen}
-            toggleMenu={() => setMenuOpen(!menuOpen)}
-          />
 
+        <HamburgerButton
+          isOpen={menuOpen}
+          toggleMenu={() => setMenuOpen(!menuOpen)}
+        />
       </div>
 
-      {/* Slide-in mobile menu */}
-      <div className={`${styles.mobileMenu} ${menuOpen ? styles.open : ""}`}>
-        {navLinks.map((link, index) => (
-          <motion.button
-            key={index}
-            className={styles.mobileNavLink}
-            {...fadeInViewProps}
-            transition={{ ...fadeInViewProps.transition, delay: index * 0.1 }}
-            onClick={() => {
-              onScrollTo(link.section);
-              setMenuOpen(false);
-            }}
-          >
-            {link.label}
-          </motion.button>
-        ))}
-      </div>
+      <MobileMenu
+        menuOpen={menuOpen}
+        navLinks={navLinks}
+        onScrollTo={onScrollTo}
+        setMenuOpen={setMenuOpen}
+        fadeInViewProps={fadeInViewProps}
+      />
 
-      {/* Optional overlay */}
       {menuOpen && (
         <div className={styles.overlay} onClick={() => setMenuOpen(false)} />
       )}

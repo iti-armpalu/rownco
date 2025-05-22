@@ -9,6 +9,7 @@ import Contact from "../components/contact/contact";
 import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
 import HamburgerButton from "../components/ui/buttons/hamburger-button";
+import MobileMenu from "../components/ui/mobile-menu";
 
 const navLinks = [{ href: "/", label: "Home" }];
 
@@ -27,6 +28,23 @@ export default function PortfolioLayout({ children }) {
       document.body.classList.remove("no-scroll");
     };
   }, [menuOpen]);
+
+  const onScrollTo = (id) => {
+    // const section = document.getElementById(cleanId);
+    // section?.scrollIntoView({ behavior: "smooth" });
+
+    // Close menu
+    setMenuOpen(false);
+
+    // Use a timeout to scroll after menu is closed
+    setTimeout(() => {
+      const cleanId = id.replace("#", "");
+      const section = document.getElementById(cleanId);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100); // Delay slightly to let scroll lock reset
+  };
 
   return (
     <>
@@ -64,25 +82,14 @@ export default function PortfolioLayout({ children }) {
           />
         </div>
 
-        {/* Slide-in mobile menu */}
-        <div className={`${styles.mobileMenu} ${menuOpen ? styles.open : ""}`}>
-          {navLinks.map((link, index) => (
-            <motion.button
-              key={index}
-              className={styles.mobileNavLink}
-              {...fadeInViewProps}
-              transition={{ ...fadeInViewProps.transition, delay: index * 0.1 }}
-              onClick={() => {
-                onScrollTo(link.section);
-                setMenuOpen(false);
-              }}
-            >
-              {link.label}
-            </motion.button>
-          ))}
-        </div>
+        <MobileMenu
+          menuOpen={menuOpen}
+          navLinks={navLinks}
+          onScrollTo={onScrollTo}
+          setMenuOpen={setMenuOpen}
+          fadeInViewProps={fadeInViewProps}
+        />
 
-        {/* Optional overlay */}
         {menuOpen && (
           <div className={styles.overlay} onClick={() => setMenuOpen(false)} />
         )}
