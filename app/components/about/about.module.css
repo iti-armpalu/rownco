@@ -3,6 +3,55 @@
   overflow: hidden;
 }
 
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  margin: 0 auto; /* Center the element */
+  text-align: left;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+}
+
+.heading p {
+  color: var(--dark-muted-gray);
+  /* color: var(--soft-lilac); */
+}
+
+.mainAbout {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6rem;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons button {
+  text-decoration: none;
+  color: var(--rich-black);
+  font-size: 1rem;
+  padding: 1.5rem 2rem;
+  width: fit-content;
+  /* border: 1px solid var(--rich-black); */
+  border: 1px solid var(--soft-lilac);
+  margin-left: -1px; /* Prevent double border between links */
+  margin-top: -1px; /* Prevent double border between top border */
+  transition:
+    border 0.3s ease,
+    color 0.3s ease,
+    background-color 0.3s ease; /* Add transition */
+  color: var(--soft-peach);
+  background-color: var(--rich-purple); /* Change background color on hover */
+}
+
+.buttons button:hover {
+  background-color: var(--rich-black); /* Change background color on hover */
+}
+
 .aboutElement {
   display: flex;
   flex-direction: column;
@@ -15,6 +64,7 @@
   gap: 2rem;
   padding: 0 1rem;
   margin-bottom: 2rem;
+  width: 100%;
 }
 
 .title {
@@ -79,14 +129,25 @@
     line-height: 2.2rem;
   }
 
-
+  .buttons {
+    flex-direction: row;
+  }
 }
 
 /* Large devices such as laptops (1024px and up) */
 @media only screen and (min-width: 1024px) {
+  .heading {
+    gap: 3rem;
+  }
+
+  .heading P {
+    max-width: 800px;
+  }
+
   .textContainer {
     flex-direction: row;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    /* align-content: space-between; */
     align-items: center;
     max-width: 1200px;
     margin: 0 auto 3rem auto;
@@ -113,9 +174,19 @@
     font-size: 3.5rem;
     line-height: 3rem;
   }
+
+  .buttons {
+    flex-direction: column;
+  }
 }
 
-
+@media only screen and (min-width: 1440px) {
+  .buttons {
+    flex-direction: row;
+    margin-left: 2rem;
+    flex: 1;
+  }
+}
 
 .image {
   height: 400px;

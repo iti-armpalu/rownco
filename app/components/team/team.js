@@ -13,7 +13,12 @@ export default function Team({ team }) {
   const teamRef = useRef();
 
   return (
-    <section ref={teamRef} id="team" className={styles.section} data-theme="light">
+    <section
+      ref={teamRef}
+      id="team"
+      className={styles.section}
+      data-theme="light"
+    >
       <div className={styles.header}>
         <motion.h2 {...fadeInViewProps}>Meet our Team</motion.h2>
         <motion.p {...fadeInViewProps}>
@@ -27,16 +32,16 @@ export default function Team({ team }) {
           {team.map((member) => (
             <div key={member.name} className={styles.teamMember}>
               {/* <div className={styles.teamMemberImage}> */}
-                <MoodImageOverlay
-                  src={urlFor(member.image).url()}
-                  alt={member.imageAlt}
-                  // overlayOpacity={0.2}
-                  // width={300}
-                  // height={300}
-                  className={styles.teamImage}
-                  overlayOpacity={0.25}
-                  priority
-                />
+              <MoodImageOverlay
+                src={urlFor(member.image).url()}
+                alt={member.imageAlt}
+                // overlayOpacity={0.2}
+                // width={300}
+                // height={300}
+                className={styles.teamImage}
+                overlayOpacity={0.25}
+                priority
+              />
               {/* </div> */}
               <div className={styles.teamMemberInfo}>
                 <h3 className={styles.memberName}>{member.name}</h3>

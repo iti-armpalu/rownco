@@ -33,7 +33,7 @@ export default async function Home() {
         <Services services={services} />
         <Portfolio categories={categories} />
         <Team team={team} />
-        <div className={styles.darkBackground} data-theme="dark">
+        <div className={styles.darkBackground}>
           <ClientLogos logos={logos} />
           <Contact />
         </div>
