@@ -13,9 +13,10 @@
   margin-bottom: 3rem;
 }
 
-.header a {
+.metaGrid a {
   text-decoration: none;
   border: 1px solid var(--rich-black);
+  width: fit-content;
   padding: 1rem 2rem;
   transition:
     color 0.3s ease,
@@ -25,7 +26,6 @@
 .header a:hover {
   color: var(--soft-peach);
   background-color: var(--rich-black);
-
 }
 
 .title {
@@ -101,7 +101,12 @@
 }
 
 .value {
-  color: #222;
+  color: var(--rich-black);
+}
+
+.expertise {
+  padding: 0.25rem 1rem;
+  background-color: var(--dark-muted-gray);
 }
 
 .imageWrapper {
@@ -225,4 +230,29 @@
 .backButton:hover {
   color: var(--rich-black);
   text-decoration: underline;
+}
+
+/* Project Nav */
+.projectNav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.projectNavButton {
+  font-size: 1rem;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.75rem 1.25rem;
+  color: var(--dark-muted-gray);
+  /* border-radius: 0.5rem; */
+  /* border: 1px solid #ddd; */
+  /* background-color: #f9f9f9; */
+  transition: background 0.3s;
+}
+
+.projectNavButton:hover {
+  background-color: #eee;
 }

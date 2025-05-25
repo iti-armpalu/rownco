@@ -56,7 +56,7 @@ export default function Header() {
   return (
     <div className={styles.container}>
       <div className={styles.headerWrapper}>
-        <motion.header className={styles.header} {...fadeInViewProps}>
+        <header className={styles.header} {...fadeInViewProps}>
           <div className={styles.logo}>
             <Link href="/">
               <Image
@@ -71,16 +71,17 @@ export default function Header() {
 
           <nav className={styles.navLinks}>
             {navLinks.map((link) => (
-              <button
+              <motion.button
                 key={link.section}
+                {...fadeInViewProps}
                 className={styles.navLink}
                 onClick={() => onScrollTo(link.section)}
               >
                 {link.label}
-              </button>
+              </motion.button>
             ))}
           </nav>
-        </motion.header>
+        </header>
 
         <HamburgerButton
           isOpen={menuOpen}

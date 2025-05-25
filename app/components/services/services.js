@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import styles from "./services.module.css";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
 import MoodImageOverlay from "../ui/mood-image";
 import { urlFor } from "@/sanity/sanityImage";
@@ -19,6 +19,7 @@ const iconPaths = [
 
 export default function Services({ services }) {
   const servicesRef = useRef();
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const [openIndex, setOpenIndex] = useState(null);
   const [isDark, setIsDark] = useState(false);
@@ -27,19 +28,9 @@ export default function Services({ services }) {
     setOpenIndex(index === openIndex ? null : index);
   };
 
+  const handleImageLoad = () => setIsLoaded(true);
+
   useEffect(() => {
-    // const observer = new IntersectionObserver(
-    //   ([entry]) => {
-    //     setIsDark(entry.isIntersecting);
-    //   },
-    //   { threshold: 0.8 }
-    // );
-
-    // const section = document.getElementById("services");
-    // if (section) observer.observe(section);
-
-    // return () => section && observer.unobserve(section);
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -110,24 +101,36 @@ export default function Services({ services }) {
                   ></div>
                 </div>
               </div>
-              {openIndex === index && (
-                <div
-                  className={`${styles.content} ${
-                    openIndex === index ? styles.open : styles.closed
-                  }`}
-                >
-                  {service.image && (
-                    <MoodImageOverlay
-                      src={urlFor(service.image).url()}
-                      alt={service.imageAlt || "Service image"}
-                      className={styles.image}
-                      overlayOpacity={0.2}
-                      priority
-                    />
-                  )}
-                  <p>{service.details}</p>
-                </div>
-              )}
+              <AnimatePresence initial={false}>
+                {openIndex === index && (
+                  // <div
+                  //   className={`${styles.content} ${
+                  //     openIndex === index ? styles.open : styles.closed}`}
+                  // >
+                  <motion.div
+                    key="content"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                    className={`${styles.content} ${
+                      openIndex === index ? styles.open : styles.closed
+                    }`}
+                  >
+                    {service.image && (
+                      <MoodImageOverlay
+                        src={urlFor(service.image).url()}
+                        alt={service.imageAlt || "Service image"}
+                        className={styles.image}
+                        overlayOpacity={0.2}
+                        priority
+                      />
+                    )}
+                    <p>{service.details}</p>
+                    {/* </div> */}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
           ))}
         </div>

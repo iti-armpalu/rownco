@@ -13,8 +13,28 @@ const mainAbout = [
   { title: "strategy" },
 ];
 
+const navLinks = [
+  { label: "Our expertise", section: "services" },
+  { label: "Explore our portfolio", section: "portfolio" },
+  { label: "Meet our Team", section: "team" },
+];
+
 export default function About({ about }) {
   const aboutRef = useRef();
+
+  const onScrollTo = (id) => {
+
+
+    // Use a timeout to scroll after menu is closed
+    setTimeout(() => {
+      const cleanId = id.replace("#", "");
+      const section = document.getElementById(cleanId);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100); // Delay slightly to let scroll lock reset
+  };
+
 
   return (
     <section
@@ -53,14 +73,14 @@ export default function About({ about }) {
             ))}
           </div>
           <div className={styles.buttons}>
-             <motion.button
+            {/* <motion.button
               // className={styles.mobileNavLink}
               {...fadeInViewProps}
               // onClick={() => {
               //   onScrollTo(section)
               // }}
             >
-              Explore our expertise
+              Our expertise
             </motion.button>
              <motion.button
               // className={styles.mobileNavLink}
@@ -79,7 +99,17 @@ export default function About({ about }) {
               // }}
             >
               Meet our team
-            </motion.button>
+            </motion.button> */}
+            {navLinks.map((link) => (
+              <motion.button
+                  {...fadeInViewProps}
+                key={link.section}
+                // className={styles.navLink}
+                onClick={() => onScrollTo(link.section)}
+              >
+                {link.label}
+              </motion.button>
+            ))}
           </div>
         </div>
         <motion.div

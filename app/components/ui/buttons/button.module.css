@@ -1,0 +1,39 @@
+.button {
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 1.5rem 2rem;
+  width: fit-content;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.primary {
+  color: var(--soft-lilac);
+  background-color: var(--rich-black); /* Change background color on hover */
+}
+
+.primary:hover {
+  background: #222;
+}
+
+.secondary {
+  background: transparent;
+  color: #000;
+  border: 1px solid #000;
+}
+
+.secondary:hover {
+  background: #000;
+  color: #fff;
+}
+
+.ghost {
+  background: none;
+  color: #666;
+  border: none;
+}
+
+.ghost:hover {
+  color: #000;
+}

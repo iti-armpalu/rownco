@@ -8,7 +8,12 @@ import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
 import Link from "next/link";
 
-export default function ProjectDetail({ project, type }) {
+export default function ProjectDetail({
+  project,
+  type,
+  previousProject,
+  nextProject,
+}) {
   const [selectedIndex, setSelectedIndex] = useState(null);
 
   const openLightbox = (index) => setSelectedIndex(index);
@@ -60,14 +65,6 @@ export default function ProjectDetail({ project, type }) {
         <motion.h1 className={styles.title} {...fadeInViewProps}>
           {project.title}
         </motion.h1>
-        <motion.a
-          href={project.officialWebsite}
-          target="_blank"
-          rel="noopener noreferrer"
-          {...fadeInViewProps}
-        >
-          Visit official project website
-        </motion.a>
       </div>
 
       {project.features?.length > 0 && (
@@ -95,9 +92,17 @@ export default function ProjectDetail({ project, type }) {
           <p className={styles.value}>{project.longDescription}</p>
         </motion.div>
         <motion.div className={styles.metaItem} {...fadeInViewProps}>
-          <p className={styles.label}>Involvement:</p>
-          <p className={styles.value}>{project.involvement}</p>
+          <p className={styles.label}>Expertise:</p>
+          <p className={`${styles.value} ${styles.expertise}`}>{project.involvement}</p>
         </motion.div>
+        <motion.a
+          href={project.officialWebsite}
+          target="_blank"
+          rel="noopener noreferrer"
+          {...fadeInViewProps}
+        >
+          Visit official project website
+        </motion.a>
       </div>
 
       <div className={styles.imageWrapper}>
@@ -117,6 +122,26 @@ export default function ProjectDetail({ project, type }) {
             />
           </motion.div>
         ))}
+      </div>
+
+      <div className={styles.projectNav}>
+        {previousProject && (
+          <Link
+            href={`/portfolio/${type}/${previousProject.slug.current}`}
+            className={styles.projectNavButton}
+          >
+            ← Previous project: {previousProject.title}
+          </Link>
+        )}
+
+        {nextProject && (
+          <Link
+            href={`/portfolio/${type}/${nextProject.slug.current}`}
+            className={styles.projectNavButton}
+          >
+            Next project: {nextProject.title} →
+          </Link>
+        )}
       </div>
 
       {selectedIndex !== null && (

@@ -18,15 +18,15 @@ export default function PortfolioTypePageTitle({ type, allTypes }) {
 
   return (
     <div className={styles.wrapper}>
-      <motion.h1 className={styles.heading} {...fadeInViewProps}>
+      <h1 className={styles.heading} {...fadeInViewProps}>
         {formatProjectType(type)} Projects
-      </motion.h1>
+      </h1>
 
       <div className={styles.viewAlso}>
         <span className={styles.viewAlsoLabel}>View also:</span>
         <div className={styles.linkRow}>
           {otherTypes.map((t) => (
-            <Link key={t.slug} href={`/portfolio/${t.slug}`} className={styles.link}>
+            <Link key={t.type} href={`/portfolio/${t.type}`} className={styles.link}>
               {/* {formatProjectType(t.slug)} */}
               {t.title}
             </Link>
