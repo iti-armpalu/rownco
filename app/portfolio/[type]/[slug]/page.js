@@ -1,5 +1,6 @@
 import ProjectDetail from "@/app/components/portfolio/project-detail";
 import { getProjectBySlug } from "@/sanity/queries/getProjectBySlug";
+import { getProjects } from "@/sanity/queries/getProjects";
 
 export default async function ProjectPage({ params }) {
   const { slug, type } = await params;
