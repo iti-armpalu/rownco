@@ -56,7 +56,7 @@ export default function Header() {
   return (
     <div className={styles.container}>
       <div className={styles.headerWrapper}>
-        <header className={styles.header} {...fadeInViewProps}>
+        <header className={styles.header}>
           <div className={styles.logo}>
             <Link href="/">
               <Image

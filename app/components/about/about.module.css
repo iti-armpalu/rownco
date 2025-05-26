@@ -28,8 +28,8 @@
 .buttons {
   display: flex;
   /* flex-direction: column; */
-      flex-direction: row;
-    flex-wrap: wrap;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .buttons button {
@@ -116,6 +116,11 @@
   margin-left: -2rem;
 }
 
+  .image {
+    height: 400px;
+    width: 100%;
+  }
+
 /* Medium devices such as tablets (768px and up) */
 @media (min-width: 768px) {
   .aboutSection {
@@ -180,11 +185,16 @@
   /* .buttons {
     flex-direction: column;
   } */
-     .buttons {
+  .buttons {
     flex-direction: row;
     flex-wrap: wrap;
     margin-left: 2rem;
     flex: 1;
+  }
+
+  .image {
+    height: 500px;
+    width: 100%;
   }
 }
 
@@ -194,9 +204,4 @@
     margin-left: 2rem;
     flex: 1;
   }
-}
-
-.image {
-  height: 400px;
-  width: 100%;
 }

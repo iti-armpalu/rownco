@@ -14,20 +14,48 @@
 
 .clientLogoContainer {
   margin: 0;
-  height: 60px;
+  /* height: 60px; */
   margin-top: -1px;
   margin-right: -1px;
 }
 
 .clientLogo {
   position: relative;
-  width: auto;
-  height: 60px;
+  /* width: auto; */
+  /* height: 60px; */
+    /* width: 100px; */
   padding: 1rem;
-  border: 1px solid var(--soft-peach);
+  border: 1px solid var(--soft-lilac);
   opacity: 0.3;  
-  fill: var(--soft-peach); /* This will change the fill color of the SVG */
+  /* fill: var(--soft-lilac); */
 
+  height: 60px;       /* 👈 fixed height */
+  width: auto;        /* let width flow */
+  display: flex;      /* helps center SVG */
+  align-items: center;
+  justify-content: center;
+
+}
+
+.clientLogo {
+  color: var(--soft-lilac); /* brand color or use CSS variables for themes */
+  /* width: 100px; */
+  /* height: auto; */
+}
+
+.clientLogo svg {
+
+  height: 100%;       /* fill the container height */
+  width: auto;        /* scale width proportionally */
+  display: block;
+     height: 60px; 
+}
+
+.clientLogo svg path {
+  fill: currentColor;
+  height: auto !important;
+  width: auto !important;
+     height: 60px; 
 }
 
 

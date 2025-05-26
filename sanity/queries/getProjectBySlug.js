@@ -1,8 +1,6 @@
 import { client } from "@/sanity/client";
 
-const PROJECTS_QUERY = `*[
-  _type == "project" && type == $type && defined(slug.current)
-] | order(_createdAt desc)[0...12] {
+const PROJECT_QUERY = `*[_type == "project" && slug.current == $slug][0]{
   _id,
   title,
   slug,
@@ -13,6 +11,7 @@ const PROJECTS_QUERY = `*[
     _id,
     title
   },
+  features,
   location,
   type,
   images[]{asset->{url}}
@@ -20,5 +19,5 @@ const PROJECTS_QUERY = `*[
 
 const options = { next: { revalidate: 30 } };
 
-export const getProjects = (type) =>
-  client.fetch(PROJECTS_QUERY, { type }, options);
+export const getProjectBySlug = (slug) =>
+  client.fetch(PROJECT_QUERY, { slug }, options);

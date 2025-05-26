@@ -18,7 +18,7 @@ export default function PortfolioTypePageTitle({ type, allTypes }) {
 
   return (
     <div className={styles.wrapper}>
-      <h1 className={styles.heading} {...fadeInViewProps}>
+      <h1 className={styles.heading} >
         {formatProjectType(type)} Projects
       </h1>
 

@@ -20,7 +20,8 @@ export default function ClientLogos({ logos }) {
               transition={{ ...fadeInViewProps.transition, delay: index * 0.1 }}
             >
               <Image
-                src={urlFor(logo.logo).url()}
+                // src={urlFor(logo.logo).url()}
+                src={logo.logo.asset.url}
                 alt={logo.name}
                 className={styles.clientLogo}
                 width={100}

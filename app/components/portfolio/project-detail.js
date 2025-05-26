@@ -14,22 +14,30 @@ export default function ProjectDetail({
   previousProject,
   nextProject,
 }) {
+  const {
+    title,
+    officialWebsite,
+    longDescription,
+    involvement,
+    features,
+    location,
+    images,
+  } = project;
+
   const [selectedIndex, setSelectedIndex] = useState(null);
 
   const openLightbox = (index) => setSelectedIndex(index);
   const closeLightbox = () => setSelectedIndex(null);
 
   const goNext = useCallback(() => {
-    if (!project.images?.length) return;
-    setSelectedIndex((i) => (i + 1) % project.images.length);
-  }, [project.images]);
+    if (!images?.length) return;
+    setSelectedIndex((i) => (i + 1) % images.length);
+  }, [images]);
 
   const goPrev = useCallback(() => {
-    if (!project.images?.length) return;
-    setSelectedIndex(
-      (i) => (i - 1 + project.images.length) % project.images.length
-    );
-  }, [project.images]);
+    if (!images?.length) return;
+    setSelectedIndex((i) => (i - 1 + images.length) % images.length);
+  }, [images]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -63,13 +71,13 @@ export default function ProjectDetail({
 
       <div className={styles.header}>
         <motion.h1 className={styles.title} {...fadeInViewProps}>
-          {project.title}
+          {title}
         </motion.h1>
       </div>
 
-      {project.features?.length > 0 && (
+      {features?.length > 0 && (
         <div className={styles.featureTags}>
-          {project.features.map((feature, index) => (
+          {features.map((feature, index) => (
             <motion.span
               key={index}
               className={styles.featureTag}
@@ -85,18 +93,33 @@ export default function ProjectDetail({
       <div className={styles.metaGrid}>
         <motion.div className={styles.metaItem} {...fadeInViewProps}>
           <p className={styles.label}>Location:</p>
-          <p className={styles.value}>{project.location}</p>
+          <p className={styles.value}>{location}</p>
         </motion.div>
         <motion.div className={styles.metaItem} {...fadeInViewProps}>
           <p className={styles.label}>Description:</p>
-          <p className={styles.value}>{project.longDescription}</p>
+          <p className={styles.value}>{longDescription}</p>
         </motion.div>
+
         <motion.div className={styles.metaItem} {...fadeInViewProps}>
           <p className={styles.label}>Expertise:</p>
-          <p className={`${styles.value} ${styles.expertise}`}>{project.involvement}</p>
+          <div className={styles.expertiseList}>
+            {Array.isArray(involvement) && involvement.length > 0 ? (
+              involvement.map((service) => (
+                <p
+                  key={service._id}
+                  className={`${styles.value} ${styles.expertise}`}
+                >
+                  {service.title}
+                </p>
+              ))
+            ) : (
+              <p className={styles.value}>No involvement listed</p>
+            )}
+          </div>
         </motion.div>
+
         <motion.a
-          href={project.officialWebsite}
+          href={officialWebsite}
           target="_blank"
           rel="noopener noreferrer"
           {...fadeInViewProps}
@@ -106,20 +129,22 @@ export default function ProjectDetail({
       </div>
 
       <div className={styles.imageWrapper}>
-        {project.images?.map((img, index) => (
+        {images?.map((img, index) => (
           <motion.div
             key={index}
             {...fadeInViewProps}
             transition={{ ...fadeInViewProps.transition, delay: index * 0.1 }}
           >
-            <Image
-              src={urlFor(img.asset).url()}
-              alt={project.title}
-              width={800}
-              height={500}
-              className={styles.image}
-              onClick={() => openLightbox(index)}
-            />
+            {img?.asset && (
+              <Image
+                src={img.asset.url}
+                alt={title}
+                width={800}
+                height={500}
+                className={styles.image}
+                onClick={() => openLightbox(index)}
+              />
+            )}
           </motion.div>
         ))}
       </div>
@@ -157,21 +182,21 @@ export default function ProjectDetail({
           </button>
 
           <Image
-            src={urlFor(project.images[selectedIndex].asset).url()}
+            src={urlFor(images[selectedIndex].asset).url()}
             alt=""
             width={800}
             height={500}
             className={styles.lightboxImage}
             onClick={(e) => e.stopPropagation()}
           />
-          {selectedIndex !== null && project.images?.length > 0 && (
+          {selectedIndex !== null && images?.length > 0 && (
             <div className={styles.lightboxCaption}>
               <p>
-                {selectedIndex + 1} / {project.images.length}
+                {selectedIndex + 1} / {images.length}
               </p>
-              {project.images[selectedIndex].caption && (
+              {images[selectedIndex].caption && (
                 <p className={styles.captionText}>
-                  {project.images[selectedIndex].caption}
+                  {images[selectedIndex].caption}
                 </p>
               )}
             </div>
