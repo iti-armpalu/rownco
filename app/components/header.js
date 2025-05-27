@@ -71,14 +71,16 @@ export default function Header() {
 
           <nav className={styles.navLinks}>
             {navLinks.map((link) => (
-              <motion.button
+              // <motion.button
+              <button
                 key={link.section}
-                {...fadeInViewProps}
+                // {...fadeInViewProps}
                 className={styles.navLink}
                 onClick={() => onScrollTo(link.section)}
               >
                 {link.label}
-              </motion.button>
+              {/* // </motion.button> */}
+              </button>
             ))}
           </nav>
         </header>

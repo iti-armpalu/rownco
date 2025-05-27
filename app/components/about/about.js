@@ -19,12 +19,10 @@ const navLinks = [
   { label: "Meet our Team", section: "team" },
 ];
 
-export default function About({ about }) {
+export default function About({ mainAbout, about }) {
   const aboutRef = useRef();
 
   const onScrollTo = (id) => {
-
-
     // Use a timeout to scroll after menu is closed
     setTimeout(() => {
       const cleanId = id.replace("#", "");
@@ -35,7 +33,6 @@ export default function About({ about }) {
     }, 100); // Delay slightly to let scroll lock reset
   };
 
-
   return (
     <section
       ref={aboutRef}
@@ -43,10 +40,13 @@ export default function About({ about }) {
       data-theme="light"
       className={styles.aboutSection}
     >
-      <div className={styles.heading}>
-        <motion.h2 {...fadeInViewProps}>About Row & Co</motion.h2>
-        <motion.p {...fadeInViewProps}>
-          Row&Co is a boutique architectural and development consultancy based
+      {mainAbout.map((about, index) => (
+        <div key={index}>
+          <div className={styles.heading}>
+            <motion.h2 {...fadeInViewProps}>About Row & Co</motion.h2>
+            <motion.p {...fadeInViewProps}>
+              {about.description}
+              {/* Row&Co is a boutique architectural and development consultancy based
           in Dubai, dedicated to delivering innovative, sustainable, and
           contextually intelligent design solutions across the Middle East. With
           a holistic approach that bridges architecture, planning, and project
@@ -55,77 +55,53 @@ export default function About({ about }) {
           impactful. From private villas and residential communities to
           hospitality and mixed-use developments, our work is defined by a sharp
           eye for detail, a passion for placemaking, and a commitment to
-          excellence throughout every phase of a project’s lifecycle.
-        </motion.p>
-      </div>
-
-      <div className={`${styles.mainAbout} ${styles.left}`}>
-        <div className={`${styles.textContainer} ${styles.right} `}>
-          <div className={styles.title}>
-            {mainAbout.map((item, wordIndex) => (
-              <motion.h2
-                key={wordIndex}
-                className={`${styles.subtitle} ${styles[`subtitle${wordIndex + 1}`]}`}
-                {...fadeInViewProps}
-              >
-                {item.title}
-              </motion.h2>
-            ))}
+          excellence throughout every phase of a project’s lifecycle. */}
+            </motion.p>
           </div>
-          <div className={styles.buttons}>
-            {/* <motion.button
-              // className={styles.mobileNavLink}
+
+          <div className={`${styles.mainAbout} ${styles.left}`}>
+            <div className={`${styles.textContainer} ${styles.right} `}>
+              <div className={styles.title}>
+                {about.title.map((word, wordIndex) => (
+                  <motion.h2
+                    key={wordIndex}
+                    className={`${styles.subtitle} ${styles[`subtitle${wordIndex + 1}`]}`}
+                    {...fadeInViewProps}
+                  >
+                    {word}
+                  </motion.h2>
+                ))}
+              </div>
+              <div className={styles.buttons}>
+                {navLinks.map((link) => (
+                  <motion.button
+                    {...fadeInViewProps}
+                    key={link.section}
+                    // className={styles.navLink}
+                    onClick={() => onScrollTo(link.section)}
+                  >
+                    {link.label}
+                  </motion.button>
+                ))}
+              </div>
+            </div>
+            <motion.div
+              className={`${styles.imageContainer} ${styles.right}`}
               {...fadeInViewProps}
-              // onClick={() => {
-              //   onScrollTo(section)
-              // }}
+              transition={{ ...fadeInViewProps.transition, delay: 0.6 }}
             >
-              Our expertise
-            </motion.button>
-             <motion.button
-              // className={styles.mobileNavLink}
-              {...fadeInViewProps}
-              // onClick={() => {
-              //   onScrollTo(section)
-              // }}
-            >
-              Explore our portfolio
-            </motion.button>
-             <motion.button
-              // className={styles.mobileNavLink}
-              {...fadeInViewProps}
-              // onClick={() => {
-              //   onScrollTo(section)
-              // }}
-            >
-              Meet our team
-            </motion.button> */}
-            {navLinks.map((link) => (
-              <motion.button
-                  {...fadeInViewProps}
-                key={link.section}
-                // className={styles.navLink}
-                onClick={() => onScrollTo(link.section)}
-              >
-                {link.label}
-              </motion.button>
-            ))}
+              <MoodImageOverlay
+                src={urlFor(about.image).url()}
+             
+                // src="/images/pexels-yentl-jacobs-43020-157811.jpg"
+                className={styles.image}
+                overlayOpacity={0.1}
+                priority
+              />
+            </motion.div>
           </div>
         </div>
-        <motion.div
-          className={`${styles.imageContainer} ${styles.right}`}
-          {...fadeInViewProps}
-          transition={{ ...fadeInViewProps.transition, delay: 0.6 }}
-        >
-          <MoodImageOverlay
-            // src={urlFor(about.image).url()}
-            src="/images/pexels-yentl-jacobs-43020-157811.jpg"
-            className={styles.image}
-            overlayOpacity={0.1}
-            priority
-          />
-        </motion.div>
-      </div>
+      ))}
 
       {about.map((about, index) => (
         <motion.div key={index} className={styles.aboutElement}>

@@ -267,7 +267,7 @@
 }
 
 .projectNavButton:hover {
-  background-color: #eee;
+  background-color: var(--rich-black);
 }
 
 @media (min-width: 768px) {

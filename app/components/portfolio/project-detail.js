@@ -113,19 +113,22 @@ export default function ProjectDetail({
                 </p>
               ))
             ) : (
-              <p className={styles.value}>No involvement listed</p>
+              <p className={styles.value}>No expertise listed</p>
             )}
           </div>
         </motion.div>
 
-        <motion.a
-          href={officialWebsite}
-          target="_blank"
-          rel="noopener noreferrer"
-          {...fadeInViewProps}
-        >
-          Visit official project website
-        </motion.a>
+        <motion.div className={styles.metaItem} {...fadeInViewProps}>
+          <p className={styles.label}></p>
+          <motion.a
+            href={officialWebsite}
+            target="_blank"
+            rel="noopener noreferrer"
+            {...fadeInViewProps}
+          >
+            Visit official project website
+          </motion.a>
+        </motion.div>
       </div>
 
       <div className={styles.imageWrapper}>
