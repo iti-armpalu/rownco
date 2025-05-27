@@ -44,19 +44,7 @@ export default function About({ mainAbout, about }) {
         <div key={index}>
           <div className={styles.heading}>
             <motion.h2 {...fadeInViewProps}>About Row & Co</motion.h2>
-            <motion.p {...fadeInViewProps}>
-              {about.description}
-              {/* Row&Co is a boutique architectural and development consultancy based
-          in Dubai, dedicated to delivering innovative, sustainable, and
-          contextually intelligent design solutions across the Middle East. With
-          a holistic approach that bridges architecture, planning, and project
-          development, we partner with clients to shape environments that are
-          not only functional and beautiful—but also economically and culturally
-          impactful. From private villas and residential communities to
-          hospitality and mixed-use developments, our work is defined by a sharp
-          eye for detail, a passion for placemaking, and a commitment to
-          excellence throughout every phase of a project’s lifecycle. */}
-            </motion.p>
+            <motion.p {...fadeInViewProps}>{about.description}</motion.p>
           </div>
 
           <div className={`${styles.mainAbout} ${styles.left}`}>
@@ -92,7 +80,6 @@ export default function About({ mainAbout, about }) {
             >
               <MoodImageOverlay
                 src={urlFor(about.image).url()}
-             
                 // src="/images/pexels-yentl-jacobs-43020-157811.jpg"
                 className={styles.image}
                 overlayOpacity={0.1}

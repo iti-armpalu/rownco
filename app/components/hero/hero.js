@@ -6,13 +6,11 @@ export default function Hero({ hero }) {
   return (
     <section className={styles.hero}>
       {hero.map((hero, index) => (
-
         <div key={index}>
-          
           <MoodImageOverlay
             src={urlFor(hero.image).url()}
             className={styles.image}
-            overlayOpacity={0.2}
+            overlayType="gradient"
             priority
           />
 
