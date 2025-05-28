@@ -43,7 +43,7 @@ export default function Header({ navLinks }) {
     <div className={styles.container}>
       <div className={styles.headerWrapper}>
         <header className={styles.header}>
-          <div className={styles.logo}>
+          <motion.div className={styles.logo} {...fadeInViewProps}>
             <Link href="/">
               <Image
                 src="/images/rownco-logo.svg"
@@ -53,22 +53,10 @@ export default function Header({ navLinks }) {
                 className={styles.logoImage}
               />
             </Link>
-          </div>
+          </motion.div>
 
           <nav className={styles.navLinks}>
             {navLinks.map((link, index) => {
-              // <motion.button
-              //   key={index}
-              //   className={styles.navLink}
-              //   onClick={() => handleScrollTo(link.section)}
-              //   {...fadeInViewProps}
-              //   transition={{
-              //     ...fadeInViewProps.transition,
-              //     delay: index * 0.05,
-              //   }}
-              // >
-              //   {link.label}
-              // </motion.button>
               const { label, href, section } = link;
               const isLast = index === navLinks.length - 1;
               const linkClass = `${styles.navLink} ${isLast ? styles.lastNavLink : ""}`;

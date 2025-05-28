@@ -108,7 +108,7 @@ export default function Services({ services }) {
                   //     openIndex === index ? styles.open : styles.closed}`}
                   // >
                   <motion.div
-                    key="content"
+                    key={service}
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
@@ -118,14 +118,22 @@ export default function Services({ services }) {
                     }`}
                   >
                     {service.image && (
-                      <MoodImageOverlay
+                      // <MoodImageOverlay
+                      //   src={urlFor(service.image).url()}
+                      //   alt={service.imageAlt || "Service image"}
+                      //   className={styles.image}
+                      //   overlayOpacity={0.2}
+                      //   priority
+                      // />
+                      <Image
                         src={urlFor(service.image).url()}
                         alt={service.imageAlt || "Service image"}
                         className={styles.image}
-                        overlayOpacity={0.2}
-                        priority
+                        width={800}
+                        height={400}
                       />
                     )}
+
                     <p>{service.details}</p>
                     {/* </div> */}
                   </motion.div>

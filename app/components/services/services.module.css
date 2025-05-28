@@ -1,6 +1,5 @@
 .section {
   transition: background-color 0.5s ease;
-  /* background-color: var(--soft-lilac); */
   color: var(--soft-lilac);
 }
 
@@ -15,21 +14,19 @@
   margin: 0 auto;
 }
 
-
 .heading {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   width: 100%;
-  margin: 0 auto; /* Center the element */
+  margin: 0 auto;
   text-align: left;
   align-items: center;
   margin-bottom: 3rem;
 }
 
 .heading p {
-  /* color: var(--dark-muted-gray); */
-  color: var(--soft-lilac);;
+  color: var(--soft-lilac);
 }
 
 .accordion {
@@ -39,16 +36,13 @@
 }
 
 .item {
-  /* border-bottom: 1px solid var(--rich-black); */
   border-bottom: 1px solid var(--soft-lilac);
   padding-bottom: 1rem;
-  /* transition: border-bottom 0.5s ease; */
 }
 
 .lightBorder {
   border-bottom: 1px solid var(--soft-lilac);
 }
-
 
 .toggleBtn {
   width: 100%;
@@ -69,12 +63,12 @@
 
 .content {
   max-height: 0;
-  /* overflow: hidden; */
   transition:
     max-height 0.4s ease,
     opacity 0.4s ease,
     padding-top 0.4s ease;
   opacity: 0;
+  margin-top: 1rem;
   padding-top: 0;
   position: relative;
   display: flex;
@@ -83,15 +77,13 @@
 }
 
 .content p {
-  /* color: var(--dark-muted-gray); */
-  color: var(--soft-lilac);;
-  margin-right: 2rem;
+  color: var(--soft-lilac);
 }
 
 .open {
   max-height: 500px;
   opacity: 1;
-  padding-top: 0.75rem;
+  padding-top: 1rem;
 }
 
 .closed {
@@ -101,8 +93,9 @@
 }
 
 .image {
-  width: auto;
+  width: 100%;
   height: 200px;
+  display: block;
   object-fit: contain;
 }
 
@@ -132,7 +125,6 @@
   transform: translate(-50%, -50%);
   width: 15px;
   height: 1px;
-  /* background: var(--rich-black); */
   background-color: var(--soft-lilac);
   border-radius: 3px;
   transition: all 0.5s ease;
@@ -145,7 +137,6 @@
   transform: translate(-50%, -50%);
   width: 1px;
   height: 15px;
-  /* background: var(--rich-black); */
   background-color: var(--soft-lilac);
   border-radius: 3px;
   transition: all 0.5s ease;
@@ -173,19 +164,10 @@
   .content {
     flex-direction: row;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
+    margin: 0 2rem;
   }
 
-  .image {
-    flex: 0 0 auto;
-    width: 300px;
-    /* height: 100%; */
-    /* height: auto; */
-  }
-
-  .content p {
-    margin-right: 6rem;
-  }
 
   .iconSurvey .iconShape::before {
     width: 20px;
@@ -196,12 +178,15 @@
 }
 
 @media (min-width: 1024px) {
-  .image {
-    flex: 0 0 auto;
-    width: 500px;
-    height: 200px;
-  }
 
+  .content {
+      margin: 0 4rem;
+}
+
+
+  .image {
+  height: 250px;
+  }
 
   .toggleBtn {
     padding: 0.5rem 0;
@@ -211,7 +196,6 @@
     font-size: 1.25rem;
   }
 }
-
 
 .serviceIcon {
   width: 50px;
@@ -230,10 +214,9 @@
   height: 38px;
   background: var(--dark-muted-gray);
   opacity: 0.3;
-  /* animation: rotateIcon 10s linear infinite; */
 }
 
-.toggleBtn:hover .icon{
+.toggleBtn:hover .icon {
   transform-origin: center center;
   animation: rotateIcon 10s linear infinite;
 }
