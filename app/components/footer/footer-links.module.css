@@ -1,0 +1,28 @@
+.socialLinks,
+.links {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.socialLinks a {
+  text-decoration: none;
+}
+
+.links p,
+.links a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+  border: 1px solid var(--soft-lilac);
+  margin-bottom: -1px;
+  margin-left: -1px;
+  color: var(--soft-lilac);
+}
+
+@media (min-width: 768px) {
+  .links {
+    flex-direction: row;
+  }
+}

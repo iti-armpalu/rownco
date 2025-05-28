@@ -25,57 +25,12 @@
 }
 
 .navLink {
+  display: block;
   margin-left: 2rem;
   text-decoration: none;
   color: #333;
   background-color: transparent;
   font-weight: 500;
-}
-
-.hamburger {
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: block;
-  text-decoration: none;
-  color: var(--rich-black);
-  font-size: 1rem;
-  padding: 1.5rem 2rem;
-  border: 1px solid var(--rich-black);
-  margin-top: -1px;
-}
-
-.mobileMenu {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 80%;
-  height: 100vh;
-  background-color: var(--soft-lilac);
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  transition: right 0.3s ease;
-  z-index: 5;
-}
-
-.mobileMenu.open {
-  right: 0;
-}
-
-.mobileNavLink {
-  text-decoration: none;
-  font-size: 1.25rem;
-  color: #222;
-}
-
-.closeButton {
-  align-self: flex-end;
-  font-size: 2rem;
-  background: none;
-  border: none;
-  cursor: pointer;
 }
 
 
@@ -99,7 +54,7 @@
   }
 
   .navLink:hover {
-    color: var(--soft-peach);
+    color: var(--soft-lilac);
     background-color: var(--rich-black); /* Change background color on hover */
   }
 
@@ -107,13 +62,6 @@
     margin-left: 0; /* Remove negative margin for the first link */
   }
 
-  .hamburger {
-    display: none;
-  }
-
-  .mobileMenu {
-    display: none;
-  }
 
   .overlay {
     display: none;
@@ -177,6 +125,7 @@
 
 .navLink {
   text-decoration: none;
+  text-transform: uppercase;
   color: var(--rich-black);
   font-size: 1rem;
   padding: 1.5rem 1.5rem;
@@ -189,80 +138,17 @@
     padding var(--transition);
 }
 
-.navLink:last-child {
-  color: var(--soft-peach);
+.lastNavLink {
+  color: var(--soft-lilac);
   background-color: var(--rich-purple);
 }
 
 .navLink:hover {
-  color: var(--soft-peach);
+  color: var(--soft-lilac);
   background-color: var(--rich-black);
 }
 
 
-
-
-/* Hamburger */
-.hamburger {
-  display: block;
-  font-size: 2.17rem;
-  padding: 0.75rem 2rem;
-  border: 1px solid var(--rich-black);
-  margin-top: -1px;
-  background: none;
-  cursor: pointer;
-  transition:
-    border var(--transition),
-    color var(--transition);
-}
-
-/* Mobile Menu */
-.mobileMenu {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 80%;
-  height: 100vh;
-  background-color: var(--soft-lilac);
-  padding: 6rem 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  transition: right var(--transition);
-  z-index: 9;
-}
-
-.mobileMenu.open {
-  right: 0;
-}
-
-.mobileNavLink {
-  text-decoration: none;
-  font-size: 1.25rem;
-  color: var(--rich-black);
-  transition: color var(--transition);
-  border: 1px solid var(--rich-black);
-  padding: 1.5rem 4rem;
-  width: fit-content;
-  margin-top: -1; /* Prevent double border between top border */
-  transition:
-    color 0.3s ease,
-    background-color 0.3s ease; /* Add transition */
-}
-
-.mobileNavLink:hover {
-  color: var(--soft-peach);
-  background-color: var(--rich-black);
-}
-
-.closeButton {
-  align-self: flex-end;
-  font-size: 2rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: color var(--transition);
-}
 
 .overlay {
   position: fixed;
@@ -276,14 +162,6 @@
   transition: opacity 0.3s ease-in-out;
 }
 
-.hamburgerWrapper{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.75rem 2rem;
-  border: 1px solid var(--rich-black);
-  margin-top: -1px;
-}
 
 /* Desktop View */
 @media (min-width: 768px) {
@@ -291,8 +169,6 @@
     display: flex;
   }
 
-  .hamburger,
-  .mobileMenu,
   .overlay {
     display: none;
   }

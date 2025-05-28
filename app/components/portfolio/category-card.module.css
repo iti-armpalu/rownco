@@ -74,16 +74,16 @@
 
   /* Override image heights for specific categories */
   .category:nth-child(1) .imageContainer {
-    height: 500px; /* Residential - taller image */
+    height: 400px; /* Residential - taller image */
     width: 100%;
   }
 
   .category:nth-child(2) .imageContainer {
-    height: 750px; /* Retail - smaller image */
+    height: 650px; /* Retail - smaller image */
   }
 
   .category:nth-child(3) .imageContainer {
-    height: 780px; /* Hospitality - taller image */
+    height: 550px; /* Hospitality - taller image */
   }
 
   .category:nth-child(4) .imageContainer {

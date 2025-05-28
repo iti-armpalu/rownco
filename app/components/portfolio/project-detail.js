@@ -3,10 +3,10 @@
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./project-detail.module.css";
-import { urlFor } from "@/sanity/sanityImage";
 import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
 import Link from "next/link";
+import Lightbox from "../ui/lightbox";
 
 export default function ProjectDetail({
   project,
@@ -173,57 +173,13 @@ export default function ProjectDetail({
       </div>
 
       {selectedIndex !== null && (
-        <div className={styles.lightboxOverlay} onClick={closeLightbox}>
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              goPrev();
-            }}
-            className={`${styles.navButton} ${styles.prevButton}`}
-          >
-            ‹
-          </button>
-
-          <Image
-            src={urlFor(images[selectedIndex].asset).url()}
-            alt=""
-            width={800}
-            height={500}
-            className={styles.lightboxImage}
-            onClick={(e) => e.stopPropagation()}
-          />
-          {selectedIndex !== null && images?.length > 0 && (
-            <div className={styles.lightboxCaption}>
-              <p>
-                {selectedIndex + 1} / {images.length}
-              </p>
-              {images[selectedIndex].caption && (
-                <p className={styles.captionText}>
-                  {images[selectedIndex].caption}
-                </p>
-              )}
-            </div>
-          )}
-
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              goNext();
-            }}
-            className={`${styles.navButton} ${styles.nextButton}`}
-          >
-            ›
-          </button>
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              closeLightbox();
-            }}
-            className={styles.closeButton}
-          >
-            ×
-          </button>
-        </div>
+        <Lightbox
+          images={images}
+          selectedIndex={selectedIndex}
+          goNext={goNext}
+          goPrev={goPrev}
+          closeLightbox={closeLightbox}
+        />
       )}
     </div>
   );

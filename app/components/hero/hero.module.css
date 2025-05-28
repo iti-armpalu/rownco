@@ -1,4 +1,4 @@
-.hero {
+.section {
   position: relative;
   display: flex;
   align-items: center;
@@ -7,14 +7,13 @@
   margin-top: 3rem;
 }
 
-.hero > div {
+.section > div {
   height: calc(100vh - 60px - 3rem);
   width: 100%;
   position: relative;
 }
 
 .image {
-  /* height: 400px; */
   height: 100%;
   width: 100%;
   position: absolute;
@@ -22,11 +21,7 @@
   z-index: 1;
 }
 
-.heroContent {
-  /* position: absolute;
-  text-align: left;
-  color: white;
-  padding: 0 2rem; */
+.content {
   position: relative;
   color: var(--soft-lilac);
   padding: 4rem 1rem;
@@ -39,17 +34,18 @@
   height: 100%;
 }
 
-.hero h1 {
+.content h1 {
   font-size: 2.8rem;
   line-height: 2.4rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   text-transform: uppercase;
 }
 
-.hero p {
+.content p {
   font-size: 1rem;
   margin: 0;
   color: inherit;
+  line-height: 1.2;
 }
 
 @keyframes fadeUp {
@@ -68,31 +64,19 @@
     height: calc(100vh - 69px - 3rem);
   }
 
-  .heroContent {
-    /* text-align: center; */
+  .content {
     max-width: 600px;
-      justify-content: center;
-        padding: 3rem 2rem;
+    justify-content: center;
+    padding: 3rem 2rem;
   }
 
-  .image {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  }
-
-  .hero h1 {
+  .content h1 {
     font-size: 5rem;
     line-height: 4.4rem;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
+    margin-bottom: 2rem;
   }
 
-  .hero p {
+  .content p {
     font-size: 1.4rem;
-    margin: 0;
-    color: inherit;
   }
 }

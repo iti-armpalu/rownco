@@ -1,8 +1,9 @@
 import { Literata, Rubik } from "next/font/google";
 import "./globals.css";
-import Header from "./components/header";
-import FooterContainer from "./components/footer/footer-container";
+import Header from "./components/header/header";
+import FooterContainer from "./components/footer/footer";
 import ScrollToTopButton from "./components/ui/buttons/scroll-to-top-button";
+import Footer from "./components/footer/footer";
 
 // If loading a variable font, you don't need to specify the font weight
 const literata = Literata({
@@ -31,7 +32,6 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${literata.variable} ${rubik.variable}`}>
         {children}
-        <FooterContainer />
         <ScrollToTopButton />
       </body>
     </html>

@@ -234,6 +234,7 @@
 }
 
 .toggleBtn:hover .icon{
+  transform-origin: center center;
   animation: rotateIcon 10s linear infinite;
 }
 

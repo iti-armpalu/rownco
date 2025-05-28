@@ -1,38 +1,38 @@
-'use client'
+"use client";
 
-import { useEffect } from 'react'
-import Image from 'next/image'
-import styles from './lightbox.module.css'
+import { useEffect } from "react";
+import Image from "next/image";
+import styles from "./lightbox.module.css";
 
 export default function Lightbox({
   images,
   selectedIndex,
-  onClose,
-  onNext,
-  onPrev,
+  goNext,
+  goPrev,
+  closeLightbox,
 }) {
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (selectedIndex === null) return
-      if (e.key === 'Escape') onClose()
-      else if (e.key === 'ArrowRight') onNext()
-      else if (e.key === 'ArrowLeft') onPrev()
-    }
+  // useEffect(() => {
+  //   const handleKeyDown = (e) => {
+  //     if (selectedIndex === null) return;
+  //     if (e.key === "Escape") onClose();
+  //     else if (e.key === "ArrowRight") onNext();
+  //     else if (e.key === "ArrowLeft") onPrev();
+  //   };
 
-    document.addEventListener('keydown', handleKeyDown)
-    return () => document.removeEventListener('keydown', handleKeyDown)
-  }, [selectedIndex, onClose, onNext, onPrev])
+  //   document.addEventListener("keydown", handleKeyDown);
+  //   return () => document.removeEventListener("keydown", handleKeyDown);
+  // }, [selectedIndex, onClose, onNext, onPrev]);
 
-  if (selectedIndex === null || !images?.length) return null
+  if (selectedIndex === null || !images?.length) return null;
 
-  const image = images[selectedIndex]
+  const image = images[selectedIndex];
 
   return (
-    <div className={styles.lightboxOverlay} onClick={onClose}>
+    <div className={styles.lightboxOverlay} onClick={closeLightbox}>
       <button
         onClick={(e) => {
-          e.stopPropagation()
-          onPrev()
+          e.stopPropagation();
+          goPrev();
         }}
         className={`${styles.navButton} ${styles.prevButton}`}
       >
@@ -57,8 +57,8 @@ export default function Lightbox({
 
       <button
         onClick={(e) => {
-          e.stopPropagation()
-          onNext()
+          e.stopPropagation();
+          goNext();
         }}
         className={`${styles.navButton} ${styles.nextButton}`}
       >
@@ -67,13 +67,13 @@ export default function Lightbox({
 
       <button
         onClick={(e) => {
-          e.stopPropagation()
-          onClose()
+          e.stopPropagation();
+          closeLightbox();
         }}
         className={styles.closeButton}
       >
         ×
       </button>
     </div>
-  )
+  );
 }
