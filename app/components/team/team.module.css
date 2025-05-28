@@ -1,6 +1,5 @@
 .section {
   padding: 6rem 2rem;
-  overflow: hidden;
 }
 
 .header {
@@ -8,20 +7,18 @@
   flex-direction: column;
   gap: 1rem;
   width: 100%;
-  margin: 0 auto; /* Center the element */
+  margin: 0 auto;
   text-align: start;
   align-items: center;
   margin-bottom: 3rem;
 }
 
 .header h2 {
-  flex: 1; /* 1/3 of the space */
-  /* font-size: 3.5rem;
-  line-height: 3rem; */
+  flex: 1;
 }
 
 .header p {
-  flex: 2; /* 2/3 of the space */
+  flex: 2;
   font-size: 1rem;
   color: var(--dark-muted-gray);
 }
@@ -41,11 +38,6 @@
   margin-top: 1rem;
 }
 
-.teamMemberImage {
-  order: 1;
-  flex: 0 0 auto;
-}
-
 .teamMemberInfo {
   flex: 1;
   display: flex;
@@ -53,11 +45,13 @@
   justify-content: flex-start;
 }
 
+
+
 .teamImage {
-  /* order: 1; */
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
 .memberName {
@@ -70,47 +64,19 @@
   text-transform: uppercase;
 }
 
-.cvButton {
-  display: inline-block;
-  margin: 1rem 0; /* Add space around the button */
-  width: max-content;
-  background-color: none;
-  text-decoration: none;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
 .memberDescription {
   margin-top: 1rem;
   color: var(--dark-muted-gray);
 }
 
-.teamImage {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  /* max-width: 300px; */
-  margin: 0 auto;
-  /* overflow: hidden; */
-  /* order: 2; */
-  flex: 0 0 auto;
-}
 
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-@media (min-width: 425px) {
+@media (min-width: 426px) {
+
+
   .teamImage {
-    max-width: 300px;
-    border-radius: 0;
+    width: 300px;
+    height: 300px;
   }
 }
 
@@ -123,7 +89,7 @@
 
 @media (min-width: 768px) {
   .header {
-    width: calc(100% - 10rem); /* Adjust width based on desired padding */
+    width: calc(100% - 10rem);
     gap: 4rem;
   }
 
@@ -135,21 +101,10 @@
     height: 355px;
   }
 
-  .teamMemberImage {
-    order: 1;
-  }
-
   .teamMemberInfo {
-    /* order: 2; */
     margin: 0;
   }
 
-  .teamImage {
-    width: 100%;
-    max-width: 300px;
-    height: 300px;
-    object-fit: contain;
-  }
 }
 
 @media (min-width: 1024px) {
@@ -159,8 +114,7 @@
   }
 
   .teamImage {
-    max-width: 400px;
+    width: 400px;
     height: 400px;
-    object-fit: contain;
   }
 }

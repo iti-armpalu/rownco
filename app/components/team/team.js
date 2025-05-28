@@ -8,27 +8,31 @@ import { fadeInViewProps } from "@/lib/animations";
 import MoodImageOverlay from "../ui/mood-image";
 import { urlFor } from "@/sanity/sanityImage";
 import { useMediaQuery } from "@/app/hooks/useMediaQuery";
+import Image from "next/image";
 
 export default function Team({ team }) {
   const teamRef = useRef();
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   const members = team.map((member) => (
-    <div key={member.name} className={styles.teamMember}>
-      <MoodImageOverlay
+    <motion.div
+      key={member._id}
+      className={styles.teamMember}
+      {...fadeInViewProps}
+    >
+      <Image
         src={urlFor(member.image).url()}
-        alt={member.imageAlt}
+        alt="text"
         className={styles.teamImage}
-        overlayOpacity={0.25}
-         overlayType="solid"
-        priority
+        width={300}
+        height={300}
       />
       <div className={styles.teamMemberInfo}>
         <h3 className={styles.memberName}>{member.name}</h3>
         <p className={styles.memberPosition}>{member.position}</p>
         <p className={styles.memberDescription}>{member.description}</p>
       </div>
-    </div>
+    </motion.div>
   ));
 
   return (
@@ -47,13 +51,13 @@ export default function Team({ team }) {
         </motion.p>
       </div>
 
-      <motion.div {...fadeInViewProps}>
+      <div>
         {isMobile ? (
           <div className={styles.mobileTeamLayout}>{members}</div>
         ) : (
           <Slider>{members}</Slider>
         )}
-      </motion.div>
+      </div>
     </section>
   );
 }
