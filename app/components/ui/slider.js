@@ -3,6 +3,7 @@
 import { useState } from "react";
 import styles from "./slider.module.css";
 import { AnimatePresence, motion } from "framer-motion";
+import { fadeInViewProps } from "@/lib/animations";
 
 export default function Slider({ children }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -38,7 +39,7 @@ export default function Slider({ children }) {
   };
 
   return (
-    <div className={styles.slider}>
+    <motion.div className={styles.slider} {...fadeInViewProps}>
       <div className={styles.slide}>
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
@@ -113,6 +114,6 @@ export default function Slider({ children }) {
           </svg>
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 }

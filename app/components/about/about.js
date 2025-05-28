@@ -6,6 +6,7 @@ import styles from "./about.module.css";
 import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
 import { urlFor } from "@/sanity/sanityImage";
+import Image from "next/image";
 
 const navLinks = [
   { label: "Our expertise", section: "services" },
@@ -121,11 +122,12 @@ export default function About({ mainAbout, about }) {
             {...fadeInViewProps}
             transition={{ ...fadeInViewProps.transition, delay: 0.6 }}
           >
-            <MoodImageOverlay
+            <Image
               src={urlFor(about.image).url()}
+              alt="text"
               className={styles.image}
-              overlayOpacity={0.1}
-              priority
+              width={800}
+              height={400}
             />
           </motion.div>
         </motion.div>
