@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-import MoodImageOverlay from "../ui/mood-image";
 import styles from "./about.module.css";
 import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
@@ -73,14 +72,6 @@ export default function About({ mainAbout, about }) {
               {...fadeInViewProps}
               transition={{ ...fadeInViewProps.transition, delay: 0.6 }}
             >
-              {/* <MoodImageOverlay
-                src={urlFor(about.image).url()}
-                // src="/images/pexels-yentl-jacobs-43020-157811.jpg"
-                className={styles.image}
-                overlayOpacity={0.1}
-                overlayType="solid"
-                priority
-              /> */}
               <Image
                 src={urlFor(about.image).url()}
                 alt="text"

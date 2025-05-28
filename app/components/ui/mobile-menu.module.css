@@ -18,25 +18,3 @@
 .mobileMenu.open {
   right: 0;
 }
-
-
-.mobileNavLink {
-  display: block;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 1.25rem;
-  color: var(--rich-black);
-  transition: color var(--transition);
-  border: 1px solid var(--rich-black);
-  padding: 1.5rem 4rem;
-  width: fit-content;
-  margin-top: -1; /* Prevent double border between top border */
-  transition:
-    color 0.3s ease,
-    background-color 0.3s ease; /* Add transition */
-}
-
-.mobileNavLink:hover {
-  color: var(--soft-lilac);
-  background-color: var(--rich-black);
-}

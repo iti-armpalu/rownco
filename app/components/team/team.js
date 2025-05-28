@@ -5,7 +5,6 @@ import Slider from "../ui/slider";
 import styles from "./team.module.css";
 import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
-import MoodImageOverlay from "../ui/mood-image";
 import { urlFor } from "@/sanity/sanityImage";
 import { useMediaQuery } from "@/app/hooks/useMediaQuery";
 import Image from "next/image";

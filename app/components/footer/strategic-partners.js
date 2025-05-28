@@ -1,7 +1,6 @@
-import Image from "next/image";
+
 import styles from "./strategic-partners.module.css";
-import Link from "next/link";
-import MoodImageOverlay from "../ui/mood-image";
+
 
 export default function StrategicPartners() {
   return (

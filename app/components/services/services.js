@@ -4,10 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./services.module.css";
 import { AnimatePresence, motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
-import MoodImageOverlay from "../ui/mood-image";
 import { urlFor } from "@/sanity/sanityImage";
 import Image from "next/image";
-// import FlowerIcon from "../../../public/flower.svg";
 
 const iconPaths = [
   "/flower.svg",
@@ -103,10 +101,6 @@ export default function Services({ services }) {
               </div>
               <AnimatePresence initial={false}>
                 {openIndex === index && (
-                  // <div
-                  //   className={`${styles.content} ${
-                  //     openIndex === index ? styles.open : styles.closed}`}
-                  // >
                   <motion.div
                     key={service}
                     initial={{ height: 0, opacity: 0 }}
@@ -118,13 +112,6 @@ export default function Services({ services }) {
                     }`}
                   >
                     {service.image && (
-                      // <MoodImageOverlay
-                      //   src={urlFor(service.image).url()}
-                      //   alt={service.imageAlt || "Service image"}
-                      //   className={styles.image}
-                      //   overlayOpacity={0.2}
-                      //   priority
-                      // />
                       <Image
                         src={urlFor(service.image).url()}
                         alt={service.imageAlt || "Service image"}

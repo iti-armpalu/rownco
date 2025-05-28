@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
 import HamburgerButton from "../ui/buttons/hamburger-button";
 import MobileMenu from "../ui/mobile-menu";
+import NavLinks from "../ui/nav-links";
 
 export default function Header({ navLinks }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -56,53 +57,13 @@ export default function Header({ navLinks }) {
           </motion.div>
 
           <nav className={styles.navLinks}>
-            {navLinks.map((link, index) => {
-              const { label, href, section } = link;
-              const isLast = index === navLinks.length - 1;
-              const linkClass = `${styles.navLink} ${isLast ? styles.lastNavLink : ""}`;
-
-              if (href) {
-                return (
-                  <motion.div
-                    key={index}
-                    {...fadeInViewProps}
-                    transition={{
-                      ...fadeInViewProps.transition,
-                      delay: index * 0.1,
-                    }}
-                  >
-                    <Link
-                      href={href}
-                      className={linkClass}
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      {label}
-                    </Link>
-                  </motion.div>
-                );
-              } else if (section) {
-                // 🔵 For scroll targets
-                return (
-                  <motion.button
-                    key={index}
-                    className={linkClass}
-                    {...fadeInViewProps}
-                    transition={{
-                      ...fadeInViewProps.transition,
-                      delay: index * 0.1,
-                    }}
-                    onClick={() => {
-                      handleScrollTo(link.section);
-                      setMenuOpen(false);
-                    }}
-                  >
-                    {label}
-                  </motion.button>
-                );
-              }
-
-              return null;
-            })}
+          
+            <NavLinks
+              navLinks={navLinks}
+              fadeInViewProps={fadeInViewProps}
+              handleScrollTo={handleScrollTo}
+              setMenuOpen={setMenuOpen}
+            />
           </nav>
         </header>
 
@@ -115,7 +76,7 @@ export default function Header({ navLinks }) {
       <MobileMenu
         menuOpen={menuOpen}
         navLinks={navLinks}
-        onScrollTo={handleScrollTo}
+        handleScrollTo={handleScrollTo}
         setMenuOpen={setMenuOpen}
         fadeInViewProps={fadeInViewProps}
       />

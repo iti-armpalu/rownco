@@ -1,5 +1,4 @@
 import styles from "./hero.module.css";
-import MoodImageOverlay from "../ui/mood-image";
 import { urlFor } from "@/sanity/sanityImage";
 import Image from "next/image";
 
@@ -8,7 +7,6 @@ export default function Hero({ hero }) {
     <section className={styles.section}>
       {hero.map((hero) => (
         <div key={hero._id} className={styles.wrapper}>
-
           <Image
             src={urlFor(hero.image).url()}
             alt="text"
@@ -17,7 +15,7 @@ export default function Hero({ hero }) {
             height={800}
           />
 
-           <div className={styles.overlay} />
+          <div className={styles.overlay} />
 
           <div className={styles.content}>
             <h1>{hero.title}</h1>
