@@ -20,6 +20,7 @@ export default function Team({ team }) {
         alt={member.imageAlt}
         className={styles.teamImage}
         overlayOpacity={0.25}
+         overlayType="solid"
         priority
       />
       <div className={styles.teamMemberInfo}>

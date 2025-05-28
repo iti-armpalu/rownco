@@ -7,12 +7,6 @@ import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
 import { urlFor } from "@/sanity/sanityImage";
 
-const mainAbout = [
-  { title: "architecture" },
-  { title: "development" },
-  { title: "strategy" },
-];
-
 const navLinks = [
   { label: "Our expertise", section: "services" },
   { label: "Explore our portfolio", section: "portfolio" },
@@ -83,6 +77,7 @@ export default function About({ mainAbout, about }) {
                 // src="/images/pexels-yentl-jacobs-43020-157811.jpg"
                 className={styles.image}
                 overlayOpacity={0.1}
+                overlayType="solid"
                 priority
               />
             </motion.div>

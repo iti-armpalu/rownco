@@ -97,6 +97,7 @@
   text-decoration: none;
   background-color: var(--rich-purple);
   height: 100%;
+  min-height: 180px;
 }
 
 .imageContainer {
