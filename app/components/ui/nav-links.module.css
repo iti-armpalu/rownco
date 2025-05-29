@@ -4,10 +4,10 @@
   display: block;
   text-decoration: none;
   text-transform: uppercase;
-  color: var(--rich-black);
+  color: var(--greenish-black);
   font-size: 1rem;
   padding: 1.5rem 4rem;
-  border: 1px solid var(--rich-black);
+  border: 1px solid var(--greenish-black);
   margin-left: -1px;
   margin-top: -1px;
   width: fit-content;
@@ -18,13 +18,13 @@
 }
 
 .lastNavLink {
-  color: var(--soft-lilac);
-  background-color: var(--rich-purple);
+  color: var(--light-taupe);
+  background-color: var(--olive-grey);
 }
 
 .navLink:hover {
-  color: var(--soft-lilac);
-  background-color: var(--rich-black);
+  color: var(--light-taupe);
+  background-color: var(--greenish-black);
 }
 
 @media (min-width: 768px) {

@@ -26,12 +26,12 @@
 
 .link {
   text-decoration: none;
-  color: var(--rich-black);
+  color: var(--greenish-black);
   font-size: 1rem;
   padding: 1rem 1rem;
   width: fit-content;
   text-align: center;
-  border: 1px solid var(--rich-black);
+  border: 1px solid var(--greenish-black);
   transition:
     color var(--transition),
     background-color var(--transition),
@@ -40,7 +40,7 @@
 
 .link:hover {
   color: var(--soft-peach);
-  background-color: var(--rich-black);
+  background-color: var(--greenish-black);
 }
 
 .image {

@@ -1,6 +1,6 @@
 .footer {
-  background-color: var(--rich-black);
-  color: var(--soft-lilac);
+  background-color: var(--greenish-black);
+  color: var(--light-taupe);
   padding: 6rem 2rem 2rem;
   text-align: center;
 }
@@ -10,5 +10,5 @@
   flex-direction: column;
   gap: 2rem;
   width: 100%;
-  border-bottom: 1px solid var(--soft-lilac);
+  border-bottom: 1px solid var(--light-taupe);
 }

@@ -25,8 +25,8 @@
   border: none;
   outline: none;
   background-color: transparent;
-  border-bottom: 1px solid var(--soft-lilac);
-  color: var(--soft-lilac);
+  border-bottom: 1px solid var(--light-taupe);
+  color: var(--light-taupe);
   font-family: 'Rubik', sans-serif;
   -moz-appearance: none;
   appearance: none;
@@ -37,21 +37,21 @@
 
 .contactForm input::placeholder,
 .contactForm textarea::placeholder {
-  color: var(--soft-lilac);
-  opacity: 0.7;
+  color: var(--light-taupe);
+  opacity: 0.8;
 }
 
 .contactForm input:focus,
 .contactForm textarea:focus {
   outline: none;
-  border-bottom: 1px solid var(--soft-lilac);
+  border-bottom: 1px solid var(--light-taupe);
 }
 
 .contactForm button {
   padding: 1.5rem 2rem;
-  border: 1px solid var(--soft-lilac);
+  border: 1px solid var(--light-taupe);
   background-color: transparent;
-  color: var(--soft-peach);
+  color: var(--light-taupe);
   cursor: pointer;
   width: fit-content;
   margin-top: 2rem;
@@ -63,8 +63,8 @@
 }
 
 .contactForm button:hover {
-  color: var(--rich-purple);
-  background-color: var(--soft-lilac);
+  color: var(--olive-grey);
+  background-color: var(--light-taupe);
 }
 
 .contactForm p {
@@ -90,4 +90,14 @@
   .flexContainer {
     flex-direction: row;
   }
+
+  .contactForm input,
+.contactForm textarea {
+  font-size: 1rem;
+}
+
+  .contactForm input::placeholder,
+.contactForm textarea::placeholder {
+  font-size: 1rem;
+}
 }

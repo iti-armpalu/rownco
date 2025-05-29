@@ -15,10 +15,10 @@
   justify-content: center;
   align-items: center;
   padding: 1rem 2rem;
-  border: 1px solid var(--soft-lilac);
+  border: 1px solid var(--light-taupe);
   margin-bottom: -1px;
   margin-left: -1px;
-  color: var(--soft-lilac);
+  color: var(--light-taupe);
 }
 
 @media (min-width: 768px) {

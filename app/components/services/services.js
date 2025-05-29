@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
 import { urlFor } from "@/sanity/sanityImage";
 import Image from "next/image";
+import SectionIntro from "../ui/section-intro";
 
 const iconPaths = [
   "/flower.svg",
@@ -34,12 +35,12 @@ export default function Services({ services }) {
         if (entry.isIntersecting) {
           const richPurple = getComputedStyle(
             document.documentElement
-          ).getPropertyValue("--rich-purple");
+          ).getPropertyValue("--olive-grey");
           document.body.style.backgroundColor = richPurple;
         } else {
           const softLilac = getComputedStyle(
             document.documentElement
-          ).getPropertyValue("--soft-lilac");
+          ).getPropertyValue("--light-taupe");
           document.body.style.backgroundColor = softLilac;
         }
       },
@@ -61,14 +62,14 @@ export default function Services({ services }) {
       className={`${styles.section} ${isDark ? styles.darkBackground : ""}`}
     >
       <div className={styles.services}>
-        <div className={styles.heading}>
-          <motion.h2 {...fadeInViewProps}>Project Expertise</motion.h2>
-          <motion.p {...fadeInViewProps}>
-            16 years of experience have allowed us to craft a service approach
+        <SectionIntro
+          title="Project Expertise"
+          description="16 years of experience have allowed us to craft a service approach
             tailored to the scale, ambition, and complexity of every project we
-            undertake.
-          </motion.p>
-        </div>
+            undertake."
+          layout="centered"
+          theme="dark"
+        />
 
         <div className={styles.accordion}>
           {services.map((service, index) => (

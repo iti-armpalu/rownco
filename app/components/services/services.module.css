@@ -1,32 +1,17 @@
 .section {
   transition: background-color 0.5s ease;
-  color: var(--soft-lilac);
+  color: var(--light-taupe);
 }
 
 .darkBackground {
-  color: var(--soft-lilac);
-  background-color: var(--rich-purple);
+  color: var(--light-taupe);
+  background-color: var(--olive-grey);
 }
 
 .services {
   padding: 8rem 2rem;
   max-width: 1000px;
   margin: 0 auto;
-}
-
-.heading {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 100%;
-  margin: 0 auto;
-  text-align: left;
-  align-items: center;
-  margin-bottom: 3rem;
-}
-
-.heading p {
-  color: var(--soft-lilac);
 }
 
 .accordion {
@@ -36,12 +21,12 @@
 }
 
 .item {
-  border-bottom: 1px solid var(--soft-lilac);
+  border-bottom: 1px solid var(--light-taupe);
   padding-bottom: 1rem;
 }
 
 .lightBorder {
-  border-bottom: 1px solid var(--soft-lilac);
+  border-bottom: 1px solid var(--light-taupe);
 }
 
 .toggleBtn {
@@ -77,7 +62,7 @@
 }
 
 .content p {
-  color: var(--soft-lilac);
+  color: var(--light-taupe);
 }
 
 .open {
@@ -125,7 +110,7 @@
   transform: translate(-50%, -50%);
   width: 15px;
   height: 1px;
-  background-color: var(--soft-lilac);
+  background-color: var(--light-taupe);
   border-radius: 3px;
   transition: all 0.5s ease;
 }
@@ -137,7 +122,7 @@
   transform: translate(-50%, -50%);
   width: 1px;
   height: 15px;
-  background-color: var(--soft-lilac);
+  background-color: var(--light-taupe);
   border-radius: 3px;
   transition: all 0.5s ease;
 }
@@ -151,11 +136,6 @@
 }
 
 @media (min-width: 576px) {
-  .heading {
-    flex-direction: row;
-    gap: 3rem;
-    margin-bottom: 4rem;
-  }
 
   .open {
     max-height: 400px;

@@ -1,14 +1,10 @@
 :root {
-  /* --soft-lilac: #EFEEFF; */
-  --soft-lilac: #d5d0ca;
-  /* --rich-purple: #110B2D; */
-  --rich-purple: #535947;
-
-  /* --rich-black: #181818; */
-  --rich-black: #373b2f;
-
-  --soft-peach: #F4E7D7;
+  --light-taupe: #d5d0ca;
+  --olive-grey: #535947;
+  --greenish-black: #373b2f;
   --dark-muted-gray: #73766c;
+  --clay-rose: #bba9a1;
+  --dried-sage: #a3a79b;
 
   --transition: 0.3s ease;
 }
@@ -26,8 +22,8 @@ html {
 body {
   margin: 0;
   font-family: 'Rubik', sans-serif;
-  background-color: var(--soft-lilac);
-  color: var(--rich-black);
+  background-color: var(--light-taupe);
+  color: var(--greenish-black);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.6s ease;
@@ -35,34 +31,34 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1200px; /* Default max-width */
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem; /* Optional padding */
-  overflow: hidden; /* Ensure no overflow */
+  padding: 0 1rem;
+  overflow: hidden;
 }
 
 @media (max-width: 1200px) {
   .container {
-    max-width: 1000px; /* Adjust as needed */
+    max-width: 1000px;
   }
 }
 
 @media (max-width: 1000px) {
   .container {
-    max-width: 800px; /* Adjust as needed */
+    max-width: 800px;
   }
 }
 
 @media (max-width: 800px) {
   .container {
-    max-width: 600px; /* Adjust as needed */
+    max-width: 600px;
   }
 }
 
 @media (max-width: 600px) {
   .container {
-    max-width: 100%; /* Full width for small screens */
-    padding: 0 0.5rem; /* Optional padding for small screens */
+    max-width: 100%;
+    padding: 0 0.5rem;
   }
 }
 
@@ -119,13 +115,13 @@ button {
   border: none;
   cursor: pointer;
   font-family: 'Rubik', sans-serif;
-  color: var(--rich-black);
+  color: var(--greenish-black);
 }
 
 p {
   font-size: 1rem;
   line-height: 1.6;
-  color: var(--rich-black);
+  color: var(--greenish-black);
   font-family: 'Rubik', sans-serif;
 }
 

@@ -25,9 +25,8 @@
   /* height: 60px; */
     /* width: 100px; */
   padding: 1rem;
-  border: 1px solid var(--soft-lilac);
+  border: 1px solid var(--light-taupe);
   opacity: 0.3;  
-  /* fill: var(--soft-lilac); */
 
   height: 60px;       /* 👈 fixed height */
   width: auto;        /* let width flow */
@@ -38,7 +37,7 @@
 }
 
 .clientLogo {
-  color: var(--soft-lilac); /* brand color or use CSS variables for themes */
+  color: var(--light-taupe); /* brand color or use CSS variables for themes */
   /* width: 100px; */
   /* height: auto; */
 }

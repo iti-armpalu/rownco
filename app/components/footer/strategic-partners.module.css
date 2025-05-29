@@ -28,7 +28,7 @@
 .paragraph {
   font-size: 1rem;
   line-height: 1.2;
-  color: var(--soft-lilac);
+  color: var(--light-taupe);
   opacity: 0.6;
 }
 
@@ -75,7 +75,7 @@
 
 .text {
   position: relative;
-  color: var(--soft-lilac);
+  color: var(--light-taupe);
   padding: 4rem 1rem;
   animation: fadeUp 2s ease-out;
   z-index: 3;
@@ -95,7 +95,7 @@
   overflow: hidden;
   /* border-radius: 8px; */
   text-decoration: none;
-  background-color: var(--rich-purple);
+  background-color: var(--olive-grey);
   height: 100%;
   min-height: 180px;
 }
@@ -113,7 +113,7 @@
 
 .textOverlay {
   position: relative;
-  color: var(--soft-lilac);
+  color: var(--light-taupe);
   text-align: left;
   font-size: 1.2rem;
   /* height: 70%; */
@@ -124,13 +124,13 @@
 }
 
 .overlayTitle {
-  color: var(--soft-lilac);
+  color: var(--light-taupe);
   /* font-size: 1.2rem; */
   margin: 0 0 0.5rem 0;
 }
 
 .overlayDescription {
-  color: var(--soft-lilac);
+  color: var(--light-taupe);
   font-size: 0.9rem;
   margin: 0;
   line-height: 1.4;

@@ -19,13 +19,13 @@
 }
 
 .light {
-  background-color: var(--rich-purple);
-  color: var(--soft-lilac);
+  background-color: var(--olive-grey);
+  color: var(--light-taupe);
 }
 
 .dark {
-  background-color: var(--soft-lilac);
-  color: var(--rich-black);
+  background-color: var(--light-taupe);
+  color: var(--olive-grey);
 }
 
 .icon {

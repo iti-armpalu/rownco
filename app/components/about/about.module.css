@@ -16,7 +16,6 @@
 
 .heading p {
   color: var(--dark-muted-gray);
-  /* color: var(--soft-lilac); */
 }
 
 .mainAbout {
@@ -34,24 +33,24 @@
 
 .buttons button {
   text-decoration: none;
-  color: var(--rich-black);
+  color: var(--greenish-black);
   font-size: 1rem;
   padding: 1.5rem 2rem;
   width: fit-content;
-  /* border: 1px solid var(--rich-black); */
-  border: 1px solid var(--soft-lilac);
+  /* border: 1px solid var(--greenish-black); */
+  border: 1px solid var(--light-taupe);
   margin-left: -1px; /* Prevent double border between links */
   margin-top: -1px; /* Prevent double border between top border */
   transition:
     border 0.3s ease,
     color 0.3s ease,
     background-color 0.3s ease; /* Add transition */
-  color: var(--soft-peach);
-  background-color: var(--rich-purple); /* Change background color on hover */
+  color: var(--light-taupe);
+  background-color: var(--olive-grey); /* Change background color on hover */
 }
 
 .buttons button:hover {
-  background-color: var(--rich-black); /* Change background color on hover */
+  background-color: var(--greenish-black); /* Change background color on hover */
 }
 
 .aboutElement {
@@ -158,7 +157,7 @@
     text-align: center;
   }
 
-  .heading P {
+  .heading p {
     max-width: 1000px;
     text-align: center;
   }

@@ -1,0 +1,33 @@
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  margin: 0 auto;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+}
+
+/* Themes */
+
+.theme__light h2 {
+  flex: 1;
+}
+
+.theme__light p {
+  flex: 2;
+  color: var(--dark-muted-gray);
+}
+
+.theme__dark p {
+  color: var(--dried-sage);
+}
+
+@media (min-width: 576px) {
+  .intro {
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+}

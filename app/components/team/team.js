@@ -8,6 +8,7 @@ import { fadeInViewProps } from "@/lib/animations";
 import { urlFor } from "@/sanity/sanityImage";
 import { useMediaQuery } from "@/app/hooks/useMediaQuery";
 import Image from "next/image";
+import SectionIntro from "../ui/section-intro";
 
 export default function Team({ team }) {
   const teamRef = useRef();
@@ -41,14 +42,14 @@ export default function Team({ team }) {
       className={styles.section}
       data-theme="light"
     >
-      <div className={styles.header}>
-        <motion.h2 {...fadeInViewProps}>Meet our Team</motion.h2>
-        <motion.p {...fadeInViewProps}>
-          Discover the driving force behind our creativity. A diverse team of
+      <SectionIntro
+        title="Meet our Team"
+        description=" Discover the driving force behind our creativity. A diverse team of
           passionate architects, each contributing a unique perspective to shape
-          the future of design.
-        </motion.p>
-      </div>
+          the future of design."
+        layout="centered"
+        theme="light"
+      />
 
       <div>
         {isMobile ? (

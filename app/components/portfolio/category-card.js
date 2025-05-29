@@ -19,11 +19,10 @@ export default function CategoryCard({ type, image, title, description }) {
         />
       </div>
       <div className={styles.details}>
-        <h3 className={styles.title}>{title}</h3>
-        <p className={styles.description}>{description}</p>
+        <h3>{title}</h3>
+        <p>{description}</p>
         <Link
           href={`/portfolio/${type}`}
-
           className={styles.learnMore}
         >
           View {title} 
