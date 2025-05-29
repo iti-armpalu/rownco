@@ -57,7 +57,7 @@
   left: 0;
   color: var(--soft-lilac);
   padding: 4rem 1rem;
-  animation: fadeUp 2s ease-out;
+  /* animation: fadeUp 2s ease-out; */
   z-index: 3;
   display: flex;
   flex-direction: column;

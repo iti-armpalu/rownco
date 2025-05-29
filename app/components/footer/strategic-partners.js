@@ -1,62 +1,84 @@
+"use client";
 
 import styles from "./strategic-partners.module.css";
-
+import { motion } from "framer-motion";
+import { fadeInViewProps } from "@/lib/animations";
 
 export default function StrategicPartners() {
   return (
-     <div className="container">
-    <section className={styles.section}>
-      <div className={styles.content}>
-        <div className={styles.left}>
-          <h2 className={styles.title}>Our Strategic Partners</h2>
-          <p className={styles.paragraph}>
-            We proudly collaborate with world-class partners to bring unmatched
-            value to our projects. These relationships are built on shared
-            vision, mutual trust, and exceptional execution.
-          </p>
-        </div>
+    <div className="container">
+      <section className={styles.section}>
+        <div className={styles.content}>
+          <div className={styles.left}>
+            <motion.h2 {...fadeInViewProps} className={styles.title}>
+              Our Strategic Partners
+            </motion.h2>
+            <motion.p {...fadeInViewProps} className={styles.paragraph}>
+              We proudly collaborate with world-class partners to bring
+              unmatched value to our projects. These relationships are built on
+              shared vision, mutual trust, and exceptional execution.
+            </motion.p>
+          </div>
 
-        <div className={styles.right}>
-          
-
-           <a
-            href="https://lombokcapitalventures.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.imageLink}
-          >
-         
+          <div className={styles.right}>
+            <motion.a
+              href="https://lombokcapitalventures.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.imageLink}
+              {...fadeInViewProps}
+            >
               <div className={styles.textOverlay}>
-                <h3 className={styles.overlayTitle}>Lombok Capital Ventures</h3>
-                <p className={styles.overlayDescription}>
-                  Delivering strategic developments across Lombok, driven by international expertise, environmental consciousness, and long-term investor value.
-                </p>
+                <motion.h3
+                  className={styles.overlayTitle}
+                  {...fadeInViewProps}
+                  transition={{ ...fadeInViewProps.transition, delay: 0.2 }}
+                >
+                  Lombok Capital Ventures
+                </motion.h3>
+                <motion.p
+                  className={styles.overlayDescription}
+                  {...fadeInViewProps}
+                  transition={{ ...fadeInViewProps.transition, delay: 0.4 }}
+                >
+                  Delivering strategic developments across Lombok, driven by
+                  international expertise, environmental consciousness, and
+                  long-term investor value.
+                </motion.p>
               </div>
-     
-          </a>
+            </motion.a>
 
-          <a
-            href="https://kidsdeservemore.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.imageLink}
-          >
-         
+            <motion.a
+              href="https://kidsdeservemore.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.imageLink}
+              {...fadeInViewProps}
+            >
               <div className={styles.textOverlay}>
-                <h3 className={styles.overlayTitle}>Kids Deserve More</h3>
-                <p className={styles.overlayDescription}>
+                <motion.h3
+                  className={styles.overlayTitle}
+                  {...fadeInViewProps}
+                  transition={{ ...fadeInViewProps.transition, delay: 0.2 }}
+                >
+                  Kids Deserve More
+                </motion.h3>
+                <motion.p
+                  className={styles.overlayDescription}
+                  {...fadeInViewProps}
+                  transition={{ ...fadeInViewProps.transition, delay: 0.4 }}
+                >
                   Our initiative to give back to the community by supporting
                   underprivileged children through education, healthcare, and
                   mentorship. We believe every child deserves equal
                   opportunities to thrive, dream, and succeed—regardless of
                   their background.
-                </p>
+                </motion.p>
               </div>
-     
-          </a>
+            </motion.a>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
     </div>
   );
 }

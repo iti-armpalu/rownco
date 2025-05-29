@@ -8,13 +8,13 @@ export default function MobileMenu({
   navLinks,
   handleScrollTo,
   setMenuOpen,
-  fadeInViewProps,
+  fadeInOnLoadProps,
 }) {
   return (
     <div className={`${styles.mobileMenu} ${menuOpen ? styles.open : ""}`}>
       <NavLinks
         navLinks={navLinks}
-        fadeInViewProps={fadeInViewProps}
+        fadeInOnLoadProps={fadeInOnLoadProps}
         handleScrollTo={handleScrollTo}
         setMenuOpen={setMenuOpen}
       />

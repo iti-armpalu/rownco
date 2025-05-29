@@ -2,7 +2,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import styles from "./nav-links.module.css";
 
-const NavLinks = ({ navLinks, fadeInViewProps, handleScrollTo, setMenuOpen }) => {
+const NavLinks = ({ navLinks, fadeInOnLoadProps, handleScrollTo, setMenuOpen }) => {
   return (
     <>
       {navLinks.map((link, index) => {
@@ -14,9 +14,9 @@ const NavLinks = ({ navLinks, fadeInViewProps, handleScrollTo, setMenuOpen }) =>
           return (
             <motion.div
               key={index}
-              {...fadeInViewProps}
+              {...fadeInOnLoadProps}
               transition={{
-                ...fadeInViewProps.transition,
+                ...fadeInOnLoadProps.transition,
                 delay: index * 0.1,
               }}
             >
@@ -34,10 +34,10 @@ const NavLinks = ({ navLinks, fadeInViewProps, handleScrollTo, setMenuOpen }) =>
             <motion.button
               key={index}
               className={linkClass}
-              {...fadeInViewProps}
+              {...fadeInOnLoadProps}
               transition={{
-                ...fadeInViewProps.transition,
-                delay: index * 0.1,
+                ...fadeInOnLoadProps.transition,
+                delay: index * 0.2,
               }}
               onClick={() => {
                 handleScrollTo(section);

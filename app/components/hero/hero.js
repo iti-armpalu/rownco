@@ -1,6 +1,10 @@
+"use client";
+
 import styles from "./hero.module.css";
 import { urlFor } from "@/sanity/sanityImage";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { fadeInOnLoadProps } from "@/lib/animations";
 
 export default function Hero({ hero }) {
   return (
@@ -18,8 +22,13 @@ export default function Hero({ hero }) {
           <div className={styles.overlay} />
 
           <div className={styles.content}>
-            <h1>{hero.title}</h1>
-            <p>{hero.subtitle}</p>
+            <motion.h1 {...fadeInOnLoadProps}>{hero.title}</motion.h1>
+            <motion.p
+              {...fadeInOnLoadProps}
+              transition={{ ...fadeInOnLoadProps.transition, delay: 0.6 }}
+            >
+              {hero.subtitle}
+            </motion.p>
           </div>
         </div>
       ))}

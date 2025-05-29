@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./header.module.css";
 import { motion } from "framer-motion";
-import { fadeInViewProps } from "@/lib/animations";
+import { fadeInOnLoadProps } from "@/lib/animations";
 import HamburgerButton from "../ui/buttons/hamburger-button";
 import MobileMenu from "../ui/mobile-menu";
 import NavLinks from "../ui/nav-links";
@@ -44,7 +44,7 @@ export default function Header({ navLinks }) {
     <div className={styles.container}>
       <div className={styles.headerWrapper}>
         <header className={styles.header}>
-          <motion.div className={styles.logo} {...fadeInViewProps}>
+          <motion.div className={styles.logo} {...fadeInOnLoadProps}>
             <Link href="/">
               <Image
                 src="/images/rownco-logo.svg"
@@ -60,7 +60,7 @@ export default function Header({ navLinks }) {
           
             <NavLinks
               navLinks={navLinks}
-              fadeInViewProps={fadeInViewProps}
+              fadeInOnLoadProps={fadeInOnLoadProps}
               handleScrollTo={handleScrollTo}
               setMenuOpen={setMenuOpen}
             />
@@ -78,7 +78,7 @@ export default function Header({ navLinks }) {
         navLinks={navLinks}
         handleScrollTo={handleScrollTo}
         setMenuOpen={setMenuOpen}
-        fadeInViewProps={fadeInViewProps}
+        fadeInOnLoadProps={fadeInOnLoadProps}
       />
 
       {menuOpen && (
