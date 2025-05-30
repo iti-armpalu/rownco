@@ -3,6 +3,7 @@
   flex-direction: column;
   padding: 6rem 2rem;
   max-width: 1200px;
+  margin: 0 auto;
 }
 
 .mobileTeamLayout {
@@ -58,9 +59,8 @@
 }
 
 @media (min-width: 768px) {
-
   .section {
-    width: calc(100% - 20rem);
+    /* width: calc(100% - 20rem); */
     margin: 0 auto;
   }
 

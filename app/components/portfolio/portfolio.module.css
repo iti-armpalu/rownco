@@ -1,7 +1,10 @@
 /* styles/Portfolio.module.css */
-.portfolio {
-  padding: 60px 20px;
-  color: var(--greenish-black);
+.section {
+  display: flex;
+  flex-direction: column;
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .heading {

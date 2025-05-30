@@ -5,7 +5,6 @@ import Link from "next/link";
 import styles from "./project-grid.module.css";
 import { fadeInViewProps } from "@/lib/animations";
 import Image from "next/image";
-import { urlFor } from "@/sanity/sanityImage";
 import { Masonry } from "react-plock";
 
 export default function ProjectGrid({ projects, type }) {

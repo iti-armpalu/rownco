@@ -3,22 +3,22 @@
 import styles from "./strategic-partners.module.css";
 import { motion } from "framer-motion";
 import { fadeInViewProps } from "@/lib/animations";
+import SectionIntro from "../ui/section-intro";
 
 export default function StrategicPartners() {
   return (
     <div className="container">
       <section className={styles.section}>
         <div className={styles.content}>
-          <div className={styles.left}>
-            <motion.h2 {...fadeInViewProps} className={styles.title}>
-              Our Strategic Partners
-            </motion.h2>
-            <motion.p {...fadeInViewProps} className={styles.paragraph}>
-              We proudly collaborate with world-class partners to bring
+
+          <SectionIntro
+            title="Our Strategic Partners"
+            description="We proudly collaborate with world-class partners to bring
               unmatched value to our projects. These relationships are built on
-              shared vision, mutual trust, and exceptional execution.
-            </motion.p>
-          </div>
+              shared vision, mutual trust, and exceptional execution."
+            layout="centered"
+            theme="dark"
+          />
 
           <div className={styles.right}>
             <motion.a

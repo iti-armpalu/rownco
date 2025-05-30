@@ -47,7 +47,7 @@ export default function Team({ team }) {
         description=" Discover the driving force behind our creativity. A diverse team of
           passionate architects, each contributing a unique perspective to shape
           the future of design."
-        layout="centered"
+        layout="default"
         theme="light"
       />
 

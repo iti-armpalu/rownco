@@ -1,9 +1,12 @@
 // HamburgerButton.tsx
 import styles from "./hamburger-button.module.css";
+import { motion } from "framer-motion";
+import { fadeInOnLoadProps } from "@/lib/animations";
 
 export default function HamburgerButton({ isOpen, toggleMenu }) {
   return (
-    <button
+    <motion.button
+      {...fadeInOnLoadProps}
       className={`${styles.hamburger} ${isOpen ? styles.open : ""}`}
       onClick={toggleMenu}
       aria-label="Toggle menu"
@@ -11,6 +14,6 @@ export default function HamburgerButton({ isOpen, toggleMenu }) {
       <span />
       <span />
       <span />
-    </button>
+    </motion.button>
   );
 }

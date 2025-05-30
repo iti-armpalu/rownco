@@ -4,11 +4,11 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .wrapper {
-  height: calc(100vh - 120px);
+  height: calc(100vh - 110px);
   position: relative;
   width: 100%;
   max-width: 100%;
@@ -67,6 +67,9 @@
 }
 
 @media (min-width: 768px) {
+  .section {
+    margin-top: 3.8rem;
+  }
   .wrapper {
     height: calc(100vh - 140px);
   }

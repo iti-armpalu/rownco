@@ -1,10 +1,9 @@
-.client {
-  padding: 5rem 0;
-}
-
-.client h2 {
-  text-align: left;
-  margin-bottom: 5rem;
+.section {
+  display: flex;
+  flex-direction: column;
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .clientLogos {

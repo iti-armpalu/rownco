@@ -67,7 +67,7 @@ export default function Services({ services }) {
           description="16 years of experience have allowed us to craft a service approach
             tailored to the scale, ambition, and complexity of every project we
             undertake."
-          layout="centered"
+          layout="default"
           theme="dark"
         />
 

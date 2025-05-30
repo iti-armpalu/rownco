@@ -1,15 +1,17 @@
 import { client } from "@/sanity/client";
 
-const options = { next: { revalidate: 86400 } }; // 24 hours in seconds
+const options = { next: { revalidate: 30 } }; // 24 hours in seconds
 
 export const getCategories = async () => {
   return await client.fetch(
-    `*[_type == "category"] | order(_createdAt asc) {
+    `*[_type == "category"] | order(order asc) {
       _id,
       type,
       title,
       description,
-      image
+      order,
+      image,
+      altText
     }`,
     {},
     options

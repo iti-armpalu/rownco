@@ -1,5 +1,3 @@
-
-
 .navLink {
   display: block;
   text-decoration: none;
@@ -45,6 +43,6 @@
 
 @media (min-width: 1440px) {
   .navLink {
-    padding: 2rem 4rem;
+    padding: 1.5rem 4rem;
   }
 }
